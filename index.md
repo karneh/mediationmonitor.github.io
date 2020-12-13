@@ -4,7 +4,7 @@ Our project idea is to be able to detect breathing and heartbeat patterns while 
 
 We find this useful because we can help people new to meditation re-focus themselves during the session.
 
-## Data Collection Methods
+## <a id="Data_Collection"></a> Data Collection Methods ##
 
 ### Sample Rate
 We chose a sample rate by doing XYZ...
