@@ -1,37 +1,30 @@
-## Welcome to GitHub Pages
+## Overview
 
-You can use the [editor on GitHub](https://github.com/karneh/mediationmonitor.github.io/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+Our project idea is to be able to detect breathing and heartbeat patterns while a person meditates. Given that meditation is very focused on the breath, our goal is to help detect if someone is focused or not focused during their meditation session based on how they are breathing. We plan to use our smartphone as the sensor, and we will collect data by finding an optimal placement on our chest to measure frequency of breathing and heartbeat.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+We find this useful because we can help people new to meditation re-focus themselves during the session.
 
-### Markdown
+## Data Collection Methods
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+### Sample Rate
+We chose a sample rate by doing XYZ...
 
-```markdown
-Syntax highlighted code block
+### Setup
+Insert pictures here, as well as a diagram for the phone orientation.
 
-# Header 1
-## Header 2
-### Header 3
+## Analytical Method
+Our analysis includes the following steps:
+1. Trim data (accel) --> subtract control
+2. fft
+3. fftshift
+4. Filter out unecessary frequencies (using band pass filter, how we determine frequency range)
+5. Plot
 
-- Bulleted
-- List
+## Results
+Show our patterns for heart rate + breath rate.
 
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/karneh/mediationmonitor.github.io/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+## Limitations & Next Steps
+1. Filtering
+2. Short samples
+3. Not accurate breath and heart rates.
+4. Our phone orientation
