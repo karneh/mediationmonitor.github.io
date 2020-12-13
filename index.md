@@ -12,7 +12,7 @@ We chose a sample rate by doing XYZ...
 ### Setup
 Insert pictures here, as well as a diagram for the phone orientation.
 
-![Nathan Side](https://github.com/karneh/mediationmonitor/blob/gh-pages/Nathan_Side.jpg =250x)
+<img src=https://github.com/karneh/mediationmonitor/blob/gh-pages/Nathan_Side.jpg" width="200"/>
 
 ## Analytical Method
 Our analysis includes the following steps:
