@@ -1,6 +1,9 @@
 ## Abstract
 
-Our project goal is to be able to detect breathing and heartbeat patterns while a person meditates. Given that meditation is very focused on the breath, **our goal is to help detect if someone is focused or not focused during their meditation session based on how they are breathing**. We plan to use our smartphone as the sensor, and we will collect data by finding an optimal placement on our chest to measure frequency of breathing and heartbeat.
+Our project goal is to be able to detect breathing and heartbeat patterns while a person meditates. 
+Given that meditation is very focused on the breath, 
+**our goal is to help detect if someone is focused or not focused during their meditation session based on how they are breathing**. 
+We plan to use our smartphone as the sensor, and we will collect data by finding an optimal placement on our chest to measure frequency of breathing and heartbeat.
 
 #### Background
 
@@ -20,13 +23,32 @@ We collected various one minute and five minute samples of someone lying down an
 #### Sample Rate
 We chose a sample rate by doing XYZ...
 
-#### Motion Model
-<img src="Phone Orientation.png" width="300"/>
+## Motion Model
+To observe and measure meditation with an accelerometer, we must have a base understanding of the various motions occurring. In our experiment we are interested in two motions: breathing, and heart beats. 
 
+#### Heartbeat Motion
+Heartbeats are easily measured by one’s own fingers. We can sense the “pulse” of increased blood flow in our veins. The accelerometer seeks to do something extremely similar. If the accelerometer was positioned normal to the heartbeat (so that the movement due to heartbeat was in 1 axis) we would expect the phone to accelerate up and down due to the change of blood flow.
+
+One cycle, or one heartbeat, should correspond to one period of our acceleration normal to the heartbeat. From our research we know that the heart rate of individuals in meditation to be between 50-100 bpm[SOURCE NUM]. This means that we can expect to see this 50-100bpm (.8-1.6hz) signal present in our acceleration data.
+
+The above analysis is based on the fact that the phone is positioned normal to the observed motion. Our sensor choice does not allow this to be true. For this reason, we expect to see accelerations matching these frequencies in all axes.
+
+INSERT EXPECTED PLOT HERE
+
+#### Breathing Motion
+Breathing is arguably more complex motion than the heartbeat, one reason is since it can be controlled by the individual. Our experiment seeks to measure the rise and fall of the subject’s chest while breathing. This motion should also be cyclical in nature. 
+
+We can expect an acceleration while inhaling and corresponding acceleration when exhaling. This means that we should large amounts of the frequencies with the breathing rate (.1-.5hz)[SOURCE] Once again this motion should be primarily recorded in one axis. However, the phone will not be placed perfectly on the body so we can expect to see corresponding signals/frequencies in all axes.
+
+The motion of breathing causes the phone to move much more than a heartbeat. This will cause the sensor to potentially move throughout measurement collection. This could introduce error into our data. 
+
+
+#### Design decisions based on motion
+We chose to position the accelerometer directly overtop the heart in hopes of being able to capture the heartbeat (the accelerations from the heartbeat will be of much smaller magnitude than breathing). This placement will allow the monitoring of breath rate at the same time as the heart rate and will minimize other unwanted sensor movements like someone flexing their abs or moving their neck. This position will also have a near zero angular velocity as almost all of the movement is normal to the phone and doesn’t change its rotation around any axes.
+<img src="Phone Orientation.png" width="300"/>
 <img src="Nathan_Side.jpg" width="300"/> 
 <img src="Nathan_Top.jpg" height="225"/>
 
-Your motion model should demonstrated a clear understanding of the dynamics of your motion, the degrees of freedom and their time derivatives, and the important frequencies.
 
 ## Analytical Method
 Our analysis includes the following steps:
