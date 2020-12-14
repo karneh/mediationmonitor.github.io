@@ -16,11 +16,13 @@ Insert pictures here, as well as a diagram for the phone orientation.
 
 ## Analytical Method
 Our analysis includes the following steps:
-1. Trim data (accel) --> subtract control
-2. fft
-3. fftshift
-4. Filter out unecessary frequencies (using band pass filter, how we determine frequency range)
-5. Plot
+1. Trim the very beginning and very end of the samples to remove anomalies.
+2. Split the data into smaller time chunks in order to examine how metrics like breathing rate and heart rate vary throughout the meditation session.
+3. Shift the FFT 
+4. Filtered out amplitudes from control data that was taken along the same axis at the same place. 
+5. Utilize a band pass filter to decrease the amplitude of frequencies we are not interested in. To choose the frequency ranges we looked up data on breath rates and heart rates. 
+6. Overplot data and observe how the frequencies associated with heart rate and breath rate changed over time. 
+
 
 ## Results
 Show our patterns for heart rate + breath rate.
