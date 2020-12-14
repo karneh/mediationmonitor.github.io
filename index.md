@@ -1,10 +1,10 @@
 ## Abstract
 
-Our project goal is to be able to detect breathing and heartbeat patterns while a person meditates. Given that meditation is very focused on the breath, our goal is to help detect if someone is focused or not focused during their meditation session based on how they are breathing. We plan to use our smartphone as the sensor, and we will collect data by finding an optimal placement on our chest to measure frequency of breathing and heartbeat.
+Our project goal is to be able to detect breathing and heartbeat patterns while a person meditates. Given that meditation is very focused on the breath, **our goal is to help detect if someone is focused or not focused during their meditation session based on how they are breathing**. We plan to use our smartphone as the sensor, and we will collect data by finding an optimal placement on our chest to measure frequency of breathing and heartbeat.
 
 #### Background
 
-There are not many existing quantitative measures of meditation that are reliable. Electroencephalogram (EEG), the detection of electrical activity in the brain, and heart rate variability (HRV) are two existing methods, though they are both responses that take a long time to detect patterns from. Breathing, however, is a measure that is controlled by meditation and can have changes detected over a short period of time.
+There are not many existing quantitative measures of meditation that are reliable. Electroencephalogram (EEG), the detection of electrical activity in the brain, and heart rate variability (HRV) are two existing methods, though they are both responses that take a long time to detect patterns from. Breath rate, however, is a measure that is controlled by meditation and can have changes detected over a short period of time.
 
 #### Use Case
 
@@ -17,7 +17,7 @@ You should explain how your model informed your data collection, and what, if an
 We chose a sample rate by doing XYZ...
 
 #### Motion Model
-Insert pictures here, as well as a diagram for the phone orientation.
+<img src="Phone Orientation.png" width="300"/>
 
 <img src="Nathan_Side.jpg" width="300"/> 
 <img src="Nathan_Top.jpg" height="225"/>
