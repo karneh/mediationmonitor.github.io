@@ -4,16 +4,19 @@ Our project idea is to be able to detect breathing and heartbeat patterns while 
 
 We find this useful because we can help people new to meditation re-focus themselves during the session.
 
-## <a id="Data_Collection"></a> Data Collection Methods ##
+## <a id="Data_Collection"></a> Data Collection Method ##
+You should explain how your model informed your data collection, and what, if any, modifications were made to the model following experimentation. The proof-of-concept should include a selection of sensors that are appropriate for the specific application. The experiment(s) should demonstrate some aspect of how the product would work in reality. Next steps for the proof-of-concept (e.g. additional experiments, changes to the design) should be well articulated.
 
-### Sample Rate
+##### Sample Rate
 We chose a sample rate by doing XYZ...
 
-### Setup
+##### Motion Model
 Insert pictures here, as well as a diagram for the phone orientation.
 
 <img src="Nathan_Side.jpg" width="300"/> 
 <img src="Nathan_Top.jpg" height="225"/>
+
+Your motion model should demonstrated a clear understanding of the dynamics of your motion, the degrees of freedom and their time derivatives, and the important frequencies.
 
 ## Analytical Method
 Our analysis includes the following steps:
@@ -22,6 +25,8 @@ Our analysis includes the following steps:
 3. fftshift
 4. Filter out unecessary frequencies (using band pass filter, how we determine frequency range)
 5. Plot
+
+The algorithm(s) for data analysis should demonstrate a clear understanding of Fourier analysis, frequency and time domains, and motion model dynamics. The project website should clearly explain the application of the algorithm to the experimental data through the use of appropriate equations and graphics.
 
 ## Results
 Show our patterns for heart rate + breath rate.
