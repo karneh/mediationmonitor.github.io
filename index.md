@@ -10,6 +10,8 @@ There are not many existing quantitative measures of meditation that are reliabl
 
 We believe that we can help people new to meditation better understand their meditative patterns through breath rate detection and heart rate detection. Our app would be able to help those new to meditation re-focus themselves during the session if it detects their breath rate and heart rate are not stable (meaning they are not focused).
 
+___
+
 ## <a id="Data_Collection"></a> Data Collection Method ##
 You should explain how your model informed your data collection, and what, if any, modifications were made to the model following experimentation. The proof-of-concept should include a selection of sensors that are appropriate for the specific application. The experiment(s) should demonstrate some aspect of how the product would work in reality. Next steps for the proof-of-concept (e.g. additional experiments, changes to the design) should be well articulated.
 
@@ -24,6 +26,8 @@ Insert pictures here, as well as a diagram for the phone orientation.
 
 Your motion model should demonstrated a clear understanding of the dynamics of your motion, the degrees of freedom and their time derivatives, and the important frequencies.
 
+___
+
 ## Analytical Method
 Our analysis includes the following steps:
 1. Trim data (accel) --> subtract control
@@ -34,8 +38,12 @@ Our analysis includes the following steps:
 
 The algorithm(s) for data analysis should demonstrate a clear understanding of Fourier analysis, frequency and time domains, and motion model dynamics. The project website should clearly explain the application of the algorithm to the experimental data through the use of appropriate equations and graphics.
 
+___
+
 ## Results
 Show our patterns for heart rate + breath rate.
+
+___
 
 ## Limitations
 
