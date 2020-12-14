@@ -23,6 +23,9 @@ We collected various one minute and five minute samples of someone lying down an
 #### Sample Rate
 We chose a sample rate by doing XYZ...
 
+
+___
+
 ## Motion Model
 To observe and measure meditation with an accelerometer, we must have a base understanding of the various motions occurring. In our experiment we are interested in two motions: breathing, and heart beats. 
 
@@ -45,6 +48,7 @@ The motion of breathing causes the phone to move much more than a heartbeat. Thi
 
 #### Design decisions based on motion
 We chose to position the accelerometer directly overtop the heart in hopes of being able to capture the heartbeat (the accelerations from the heartbeat will be of much smaller magnitude than breathing). This placement will allow the monitoring of breath rate at the same time as the heart rate and will minimize other unwanted sensor movements like someone flexing their abs or moving their neck. This position will also have a near zero angular velocity as almost all of the movement is normal to the phone and doesn’t change its rotation around any axes.
+
 <img src="Phone Orientation.png" width="300"/>
 <img src="Nathan_Side.jpg" width="300"/> 
 <img src="Nathan_Top.jpg" height="225"/>
