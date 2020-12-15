@@ -77,13 +77,13 @@ The algorithm(s) for data analysis should demonstrate a clear understanding of F
 To validate our method we performed a first pass analysis on a constructed signal with the frequencies of interest.
 Below is a plot of the signal generated in the time domain. This signal has both a .95 hz and 0.2 hz signal in the dataset. These two frequencies represent a heart and breath rate respectively. 
 
-<img src="images/sim_time.jpg" width="400"/> 
+<img src="images/sim_time.png" width="400"/> 
 
 ***Time domain plot of simulated signal w/noise (.2hz and .95 hz signals)***
 
 This signal is then converted into the frequency showing using Matlab’s FFT (Fast Fourier Transform) function ()[INSERT LINK]. This indicates how much of a certain frequency is present in a sample. Below is the figure generated from the FFT function. This signal has been shifted into the frequency domain (hz).
 
-<img src="images/sim_freq.jpg" width="400"/> 
+<img src="images/sim_freq.png" width="400"/> 
 
 ***Frequency domain plot of simulated signal***
 
@@ -91,7 +91,7 @@ This plot informs us of several things. We do indeed see the presence of the fre
 
 One idea we had was to remedy this problem by using the additional parameter that controls the size of the matrix used to calculate the fft of our signal (https://www.mathworks.com/help/matlab/ref/fft.html#f83-998360-n)[https://www.mathworks.com/help/matlab/ref/fft.html#f83-998360-n]. This parameter could generate more points between a given range in our plot and allow us to look at a more dense range of frequencies.
 
-<img src="images/sim_freq.jpg" width="00"/> <img src="images/sim_freq_double.jpg" width="400"/> 
+<img src="images/sim_freq.png" width="00"/> <img src="images/sim_freq_double.png" width="400"/> 
 
 ***Above are two plots showing the same frequency domain plot using fft(x, length(x)) and fft(x, 2*length(x)) respectively***
 
