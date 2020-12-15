@@ -5,13 +5,15 @@ Given that meditation is very focused on the breath,
 **our goal is to help detect if someone is focused or not focused during their meditation session based on how they are breathing**. 
 We plan to use our smartphone as the sensor, and we will collect data by finding an optimal placement on our chest to measure frequency of breathing and heartbeat.
 
-#### Background
-
+<details>
+  <summary>Background</summary>
 There are not many existing quantitative measures of meditation that are reliable. Electroencephalogram (EEG), the detection of electrical activity in the brain, and heart rate variability (HRV) are two existing methods, though they are both responses that take a long time to detect patterns from. Breath rate, however, is a measure that is controlled by meditation and can have changes detected over a short period of time.
+</details>
 
-#### Use Case
-
+<details>
+  <summary>Use Case</summary>
 We believe that we can help people new to meditation better understand their meditative patterns through breath rate detection and heart rate detection. Our app would be able to help those new to meditation re-focus themselves during the session if it detects their breath rate and heart rate are not stable (meaning they are not focused).
+</details>
 
 ___
 
@@ -54,9 +56,8 @@ We expect a raw acceleration plot to look something like this:
 
 ***Generated wave with .95hz(heartbeat) and .2hz(breathrate) sine waves ***
 
-#### Design decisions based on motion
 <details>
-  <summary>Click to expand!</summary>
+  <summary>Design decisions based on motion</summary>
   
 We chose to position the accelerometer directly overtop the heart in hopes of being able to capture the heartbeat (the accelerations from the heartbeat will be of much smaller magnitude than breathing). This placement will allow the monitoring of breath rate at the same time as the heart rate and will minimize other unwanted sensor movements like someone flexing their abs or moving their neck. This position will also have a near zero angular velocity as almost all of the movement is normal to the phone and doesn’t change its rotation around any axes.
 </details>
@@ -140,3 +141,14 @@ If the project were to continue using an accelerometer as the primary sensor the
 
 In terms of product creation, this software is ready for a beta launch! Refactoring our code into a smartphone app is the final step. This app would be able to parse an entire meditation session into smaller time chunks and then allow the user to look back at portions of their session that were above or below their recommended breathing and heart rates.
 
+___
+
+## Sources
+
+Laskowski, Edward. “Heart Rate: What’s Normal?” Mayo Clinic, 2 Oct. 2020, www.mayoclinic.org/healthy-lifestyle/fitness/expert-answers/heart-rate/faq-20057979.
+
+“Mindful Breathing (Greater Good in Action).” Greater Good in Action, ggia.berkeley.edu/practice/mindful_breathing. Accessed 6 Dec. 2020.
+
+Soni, Rahul, and Manivannan Muniyandi. “Breath Rate Variability: A Novel Measure to Study the Meditation Effects.” International Journal of Yoga, Medknow Publications & Media Pvt Ltd, Jan. 2019, www.ncbi.nlm.nih.gov/pmc/articles/PMC6329220/.
+
+“Vital Signs (Body Temperature, Pulse Rate, Respiration Rate, Blood Pressure).” Johns Hopkins Medicine, www.hopkinsmedicine.org/health/conditions-and-diseases/vital-signs-body-temperature-pulse-rate-respiration-rate-blood-pressure. Accessed 6 Dec. 2020.
