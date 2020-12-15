@@ -23,6 +23,7 @@ We collected various one minute and five minute samples of someone lying down an
 <img src="Nathan_Side.jpg" width="300"/> <img src="Nathan_Top.jpg" height="225"/> 
 
 The sensor, a Pixel phone, was oriented with the following axes:
+
 <img src="Phone Orientation.png" width="300"/>
 
 #### Sample Rate
