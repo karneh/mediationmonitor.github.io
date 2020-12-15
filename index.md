@@ -20,14 +20,18 @@ ___
 
 We collected various one minute and five minute samples of someone lying down and meditating, alongside one minute and five minute control samples of the phone lying in the same orientation and location.
 
+<img src="Nathan_Side.jpg" width="300"/> <img src="Nathan_Top.jpg" height="225"/> 
+
+The sensor, a Pixel phone, was oriented with the following axes:
+<img src="Phone Orientation.png" width="300"/>
+
 #### Sample Rate
 We chose a sample rate by doing XYZ...
-
 
 ___
 
 ## Motion Model
-To observe and measure meditation with an accelerometer, we must have a base understanding of the various motions occurring. In our experiment we are interested in two motions: breathing, and heart beats. 
+To observe and measure meditation with an accelerometer, we must have a base understanding of the various motions occurring. In our experiment we are interested in two motions: breathing and heartbeats. 
 
 #### Heartbeat Motion
 Heartbeats are easily measured by one’s own fingers. We can sense the “pulse” of increased blood flow in our veins. The accelerometer seeks to do something extremely similar. If the accelerometer was positioned normal to the heartbeat (so that the movement due to heartbeat was in 1 axis) we would expect the phone to accelerate up and down due to the change of blood flow.
@@ -45,7 +49,6 @@ We can expect an acceleration while inhaling and corresponding acceleration when
 
 The motion of breathing causes the phone to move much more than a heartbeat. This will cause the sensor to potentially move throughout measurement collection. This could introduce error into our data. 
 
-
 #### Design decisions based on motion
 <details>
   <summary>Click to expand!</summary>
@@ -53,10 +56,7 @@ The motion of breathing causes the phone to move much more than a heartbeat. Thi
 We chose to position the accelerometer directly overtop the heart in hopes of being able to capture the heartbeat (the accelerations from the heartbeat will be of much smaller magnitude than breathing). This placement will allow the monitoring of breath rate at the same time as the heart rate and will minimize other unwanted sensor movements like someone flexing their abs or moving their neck. This position will also have a near zero angular velocity as almost all of the movement is normal to the phone and doesn’t change its rotation around any axes.
 </details>
 
-<img src="Phone Orientation.png" width="300"/>
-<img src="Nathan_Side.jpg" width="300"/> 
-<img src="Nathan_Top.jpg" height="225"/>
-
+___
 
 ## Analytical Method
 Our analysis includes the following steps:
