@@ -20,11 +20,11 @@ ___
 
 We collected various one minute and five minute samples of someone lying down and meditating, alongside one minute and five minute control samples of the phone lying in the same orientation and location.
 
-<img src="Nathan_Side.jpg" width="300"/> <img src="Nathan_Top.jpg" height="225"/> 
+<img src="images/nathan_side.jpg" width="300"/> <img src="images/nathan_top.jpg" height="225"/> 
 
 The sensor, a Pixel phone, was oriented with the following axes:
 
-<img src="Phone Orientation.png" width="300"/>
+<img src="images/phone_orien.png" width="300"/>
 
 #### Sample Rate
 We chose a sample rate by doing XYZ...
