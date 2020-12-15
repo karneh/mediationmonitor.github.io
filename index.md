@@ -97,15 +97,12 @@ One idea we had was to remedy this problem by using the additional parameter tha
 
 These graphics show that while this doesn’t create the ideal behavior(other noise in the signal seems to be increased), it does create spikes centered around the expected values at .2 and .95hz. Unfortunately, this yields other spikes in non-interesting frequencies. Adjusting the __N__ parameter is worth testing, however, from this data a simple weighted average of the regions of interest would yield the same peak.
 
-
 Another problem we have identified is the fact that the frequencies will change over time.
 
 In order to understand what our fft would do to an input signal with a varying frequency 
 TBC
 
-
-
-
+___
 
 ## Results
 Show our patterns for heart rate + breath rate.
@@ -132,6 +129,7 @@ This project is far from perfect and there are a variety of things that could be
 - Breath rate can be controlled more than heart rate, which yields inconsistent signals 
 - While meditating heart rate generally slows and breath rate should become lower and less “aggressive”. This makes the input signal smaller and more difficult to read.
 
+___
 
 ## Next steps
 Many of the above limitations/problems are caused by the use of an accelerometer to measure both heartbeat and breath rate. The other limitations tend to fall into the fact that both heart rate and breath rate can vary over time.
