@@ -34,6 +34,7 @@ The phone was oriented with the following axes:
 
 Figure 1: Sensor Orientation
 
+
 <img src="images/phone_orien.png" width="250"/>
 
 </details>
@@ -42,6 +43,7 @@ Figure 1: Sensor Orientation
   <summary>Set Up</summary>
   
 Figure 2: Experimental Set Up
+
 
 <img src="images/nathan_side.jpg" width="300"/> <img src="images/nathan_top.jpg" height="225"/> 
   
@@ -83,7 +85,9 @@ The motion of breathing causes the phone to move much more than a heartbeat. Thi
 
 We expect a raw acceleration plot to look something like this:
 
+
 Figure 3: Theoretical Acceleration
+
 
 <img src="images/sim_time.jpg" width="400"/>
 
