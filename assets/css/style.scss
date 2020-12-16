@@ -1,0 +1,32 @@
+---
+---
+
+@import "{{ site.theme }}";
+
+p {
+  color: black;
+  font-size: 16px;
+}
+
+details {
+  color: black;
+  font-size: 16px;
+  padding-bottom: 8px; 
+  padding-top: 8px;
+  border:none;
+}
+
+summary {
+  font-size:18px; 
+  color:#159957; 
+  padding-bottom: 8px;
+  
+  &:focus {
+    outline:none;
+  }
+  
+  &:hover {
+    opacity:0.7;
+    cursor:pointer;
+  }
+}

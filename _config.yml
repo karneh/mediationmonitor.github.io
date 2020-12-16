@@ -1,6 +1,7 @@
 theme: jekyll-theme-cayman
 title: Mediation Monitor
 description: QEA Module 3 Project by Karen Hinh, Linda Hu and Nathan Faber
+page.title: Mediation Monitor
 
 github:
   repository_url: https://github.com/teadetime/mediation_monitor
