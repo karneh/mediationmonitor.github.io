@@ -32,6 +32,7 @@ We chose to use a Pixel phone's accelerometer as our sensor. This selection was 
   
 The phone was oriented with the following axes:
 <img src="images/phone_orien.png" width="250"/>
+<p style="text-align: center;">Figure 1: Experimental Set Up</p>
 
 </details>
 
