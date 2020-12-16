@@ -134,26 +134,32 @@ This project is far from perfect and there are a variety of things that could be
 
 <details style="padding-bottom:8px; border:none;">
   <summary style="font-size:18px; color:#159957;" onfocus = "this.style.outline = 'none'">Sensor Placement and Choice</summary>
+
 - Using an accelerometer as a measurement device requires consistent orientation of the device. For this reason our datasets are likely different between samples.
 - Accelerometers are by no means the most effective way to measure heartbeat or breath-rate. (a pulse oximeter and computer vision might yield better results respectively)
 - Components of the motion from breathing are present in all 3 axes. This makes computations either more difficult, or more error-prone
 - Other frequencies (yawning, swallowing, fidgeting will also be picked up by the accelerometer)
+
 </details>
 
 <details style="padding-bottom:8px; border:none;">
   <summary style="font-size:18px; color:#159957;" onfocus = "this.style.outline = 'none'">Data Processing</summary>
+
 - Fourier transforms of time chunks yield presence of certain frequencies (not every frequency). This may makes our breath rate and heart rate detection difficult as we are choosing one frequency with the highest amplitude out of a small number (see figures)
 - Raw accelerometer data is unfiltered
 - Limited in sampling frequency between 10-100hz
+
 </details>
 
 <details style="padding-bottom:8px; border:none;">
   <summary style="font-size:18px; color:#159957;" onfocus = "this.style.outline = 'none'">Nature of the Problem</summary>
+
 - People breathe very differently. Breathing through your nose vs mouth or diaphragm yields very different accelerometer plots.
 - The frequencies we are measuring change over time, we attempt to combat this by looking at small time steps
 - Breathing frequencies are quite low and variable which requires us to have large samples
 - Breath rate can be controlled more than heart rate, which yields inconsistent signals 
 - While meditating heart rate generally slows and breath rate should become lower and less “aggressive”. This makes the input signal smaller and more difficult to read.
+
 </details>
 
 ___
