@@ -11,4 +11,15 @@ p {
 details {
   color: black;
   font-size: 14px;
+  padding-bottom: 8px; 
+  border:none;
+}
+
+summary {
+  font-size:18px; 
+  color:#159957; 
+  
+  &:focus {
+    outline:none;
+  }
 }
