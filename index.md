@@ -81,7 +81,7 @@ The motion of breathing causes the phone to move much more than a heartbeat. Thi
 
 We expect a raw acceleration plot to look something like this:
 
-Figure 3: Raw Acceleration
+Figure 3: Theoretical Acceleration
 <img src="images/sim_time.jpg" width="400"/>
 
 ***Generated wave with .95 Hz(heartbeat) and .2 Hz(breathrate) sine waves ***
@@ -98,12 +98,13 @@ We chose to position the accelerometer directly overtop the heart in hopes of be
 ___
 
 ## <a id="Analytical_Method"></a> Analytical Method
-*Our analysis includes the following steps:*
-*1. Trim data (accel) --> subtract control*
-*2. fft*
-*3. fftshift*
-*4. Filter out unecessary frequencies (using band pass filter, how we determine frequency range)*
-*5. Plot*
+
+Before we began actually analyzing the data, some trimming of the data was necessary. In Figure 4, you can see that at the beginning and end of the accelerometer data has some peaks from when the screen is pressed to start data collection. Therefore, we made the decision to trim the very beginning and end of samples to remove these anomalies. 
+
+Figure 4: Raw Acceleration
+<img src="images/rawdata.jpg" width="400"/> 
+
+We then split the data into smaller time chunks in order to examine how metrics like breathing rate and heart rate vary throughout the meditation session.
 
 *The algorithm(s) for data analysis should demonstrate a clear understanding of Fourier analysis, frequency and time domains, and motion model dynamics. The project website should clearly explain the application of the algorithm to the experimental data through the use of appropriate equations and graphics.*
 
