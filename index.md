@@ -81,16 +81,17 @@ We chose to position the accelerometer directly overtop the heart in hopes of be
 ___
 
 ## Analytical Method
-Our analysis includes the following steps:
-1. Trim data (accel) --> subtract control
-2. fft
-3. fftshift
-4. Filter out unecessary frequencies (using band pass filter, how we determine frequency range)
-5. Plot
+*Our analysis includes the following steps:*
+*1. Trim data (accel) --> subtract control
+*2. fft
+*3. fftshift
+*4. Filter out unecessary frequencies (using band pass filter, how we determine frequency range)
+*5. Plot
 
-The algorithm(s) for data analysis should demonstrate a clear understanding of Fourier analysis, frequency and time domains, and motion model dynamics. The project website should clearly explain the application of the algorithm to the experimental data through the use of appropriate equations and graphics.
+*The algorithm(s) for data analysis should demonstrate a clear understanding of Fourier analysis, frequency and time domains, and motion model dynamics. The project website should clearly explain the application of the algorithm to the experimental data through the use of appropriate equations and graphics.*
 
-#### Method Validation
+<details style="padding-bottom:8px; border:none;">
+  <summary style="font-size:18px; color:#159957;" onfocus = "this.style.outline = 'none'">Method Validation</summary>
 To validate our method we performed a first pass analysis on a constructed signal with the frequencies of interest.
 Below is a plot of the signal generated in the time domain. This signal has both a .95 hz and 0.2 hz signal in the dataset. These two frequencies represent a heart and breath rate respectively. 
 
@@ -118,33 +119,42 @@ Another problem we have identified is the fact that the frequencies will change 
 
 In order to understand what our fft would do to an input signal with a varying frequency 
 TBC
+</details>
 
 ___
 
 ## Results
-Show our patterns for heart rate + breath rate.
+*Show our patterns for heart rate + breath rate.*
+
+___
 
 ## Limitations
 
 This project is far from perfect and there are a variety of things that could be done to improve the utility/accuracy of our monitor. These limitations can be broken into several categories
 
-#### Sensor Placement and choice
+<details style="padding-bottom:8px; border:none;">
+  <summary style="font-size:18px; color:#159957;" onfocus = "this.style.outline = 'none'">Sensor Placement and Choice</summary>
 - Using an accelerometer as a measurement device requires consistent orientation of the device. For this reason our datasets are likely different between samples.
 - Accelerometers are by no means the most effective way to measure heartbeat or breath-rate. (a pulse oximeter and computer vision might yield better results respectively)
 - Components of the motion from breathing are present in all 3 axes. This makes computations either more difficult, or more error-prone
 - Other frequencies (yawning, swallowing, fidgeting will also be picked up by the accelerometer)
+</details>
 
-#### Data Processing
+<details style="padding-bottom:8px; border:none;">
+  <summary style="font-size:18px; color:#159957;" onfocus = "this.style.outline = 'none'">Data Processing</summary>
 - Fourier transforms of time chunks yield presence of certain frequencies (not every frequency). This may makes our breath rate and heart rate detection difficult as we are choosing one frequency with the highest amplitude out of a small number (see figures)
 - Raw accelerometer data is unfiltered
 - Limited in sampling frequency between 10-100hz
+</details>
 
-#### Nature of the problem
+<details style="padding-bottom:8px; border:none;">
+  <summary style="font-size:18px; color:#159957;" onfocus = "this.style.outline = 'none'">Nature of the Problem</summary>
 - People breathe very differently. Breathing through your nose vs mouth or diaphragm yields very different accelerometer plots.
 - The frequencies we are measuring change over time, we attempt to combat this by looking at small time steps
 - Breathing frequencies are quite low and variable which requires us to have large samples
 - Breath rate can be controlled more than heart rate, which yields inconsistent signals 
 - While meditating heart rate generally slows and breath rate should become lower and less “aggressive”. This makes the input signal smaller and more difficult to read.
+</details>
 
 ___
 
