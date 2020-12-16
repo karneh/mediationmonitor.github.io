@@ -89,6 +89,7 @@ We expect a raw acceleration plot to look something like this:
 Figure 3: Theoretical Acceleration
 
 
+
 <img src="images/sim_time.png" width="400"/>
 
 ***Generated wave with .95 Hz(heartbeat) and .2 Hz(breathrate) sine waves ***
