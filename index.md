@@ -33,6 +33,7 @@ We chose to use a Pixel phone's accelerometer as our sensor. This selection was 
 The phone was oriented with the following axes:
 
 Figure 1: Sensor Orientation
+
 <img src="images/phone_orien.png" width="250"/>
 
 </details>
@@ -41,7 +42,8 @@ Figure 1: Sensor Orientation
   <summary>Set Up</summary>
   
 Figure 2: Experimental Set Up
-  <img src="images/nathan_side.jpg" width="300"/> <img src="images/nathan_top.jpg" height="225"/> 
+
+<img src="images/nathan_side.jpg" width="300"/> <img src="images/nathan_top.jpg" height="225"/> 
   
 To collect data, we simply placed our sensor (the phone) on the chest of the person whose data is being collected. We found that the chest was the optimal placement compared to other places on the body, since it was where our sensor could register heartbeat and breathing.
 
@@ -82,6 +84,7 @@ The motion of breathing causes the phone to move much more than a heartbeat. Thi
 We expect a raw acceleration plot to look something like this:
 
 Figure 3: Theoretical Acceleration
+
 <img src="images/sim_time.jpg" width="400"/>
 
 ***Generated wave with .95 Hz(heartbeat) and .2 Hz(breathrate) sine waves ***
@@ -102,6 +105,7 @@ ___
 Before we began actually analyzing the data, some trimming of the data was necessary. In Figure 4, you can see that at the beginning and end of the accelerometer data has some peaks from when the screen is pressed to start data collection. Therefore, we made the decision to trim the very beginning and end of samples to remove these anomalies. 
 
 Figure 4: Raw Acceleration
+
 <img src="images/rawdata.jpg" width="400"/> 
 
 We then split the data into smaller time chunks in order to examine how metrics like breathing rate and heart rate vary throughout the meditation session.
@@ -109,7 +113,10 @@ We then split the data into smaller time chunks in order to examine how metrics 
 AFter looking at the FFT of the control data, we decided to filter out the control data. The reasoning for this is that the amplitudes in the frequency range of interest (0.1 - 1.5 Hz) were pretty significant as shown in Figure 5. Our method of filtering involves subtracting the FFT of the control data from the FFT of the actual data. 
 
 Figure 5: Control Data FFT
+
 <img src="images/ControlDataFFT.jpg" width="400"/> 
+
+At this point, we decided to implement a band pass filter to decrease the amplitude of frequencies we are not interested in. To choose the frequency ranges we looked up data on breath rates and heart rates.
 
 *The algorithm(s) for data analysis should demonstrate a clear understanding of Fourier analysis, frequency and time domains, and motion model dynamics. The project website should clearly explain the application of the algorithm to the experimental data through the use of appropriate equations and graphics.*
 
@@ -126,6 +133,7 @@ Figure :
 
 This signal is then converted into the frequency showing using Matlab’s FFT (Fast Fourier Transform) function ()[INSERT LINK]. This indicates how much of a certain frequency is present in a sample. Below is the figure generated from the FFT function. This signal has been shifted into the frequency domain (Hz).
 
+Figure :
 <img src="images/sim_freq.png" width="400"/> 
 
 ***Frequency domain plot of simulated signal***
