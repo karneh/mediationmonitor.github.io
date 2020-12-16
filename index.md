@@ -1,4 +1,4 @@
-## <a id="Abstract"></a> Abstract
+## <a id="Abstract"></a> Introduction
 
 Our project goal is to be able to detect breathing and heartbeat patterns while a person meditates. 
 Given that meditation is very focused on the breath, 
