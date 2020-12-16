@@ -1,4 +1,4 @@
-## Abstract
+## <a id="Abstract"></a> Abstract ##
 
 Our project goal is to be able to detect breathing and heartbeat patterns while a person meditates. 
 Given that meditation is very focused on the breath, 
@@ -45,7 +45,7 @@ We collected various one minute and five minute samples of someone lying down an
 
 ___
 
-## Motion Model
+## <a id="Motion_Model"></a> Motion Model ##
 To observe and measure meditation with an accelerometer, we must have a base understanding of the various motions occurring. In our experiment we are interested in two motions: breathing and heartbeats. 
 
 <details style="margin-bottom:8px; border:none;">
@@ -80,7 +80,7 @@ We chose to position the accelerometer directly overtop the heart in hopes of be
 
 ___
 
-## Analytical Method
+## <a id="Analytical_Method"></a> Analytical Method ##
 *Our analysis includes the following steps:*
 *1. Trim data (accel) --> subtract control
 *2. fft
@@ -123,12 +123,12 @@ TBC
 
 ___
 
-## Results
+## <a id="Results"></a>Results ##
 *Show our patterns for heart rate + breath rate.*
 
 ___
 
-## Limitations
+## <a id="Limitations"></a> Limitations ##
 
 This project is far from perfect and there are a variety of things that could be done to improve the utility/accuracy of our monitor. These limitations can be broken into several categories
 
@@ -164,7 +164,7 @@ This project is far from perfect and there are a variety of things that could be
 
 ___
 
-## Next steps
+## <a id="Next_Steps"></a> Next steps ##
 Many of the above limitations/problems are caused by the use of an accelerometer to measure both heartbeat and breath rate. The other limitations tend to fall into the fact that both heart rate and breath rate can vary over time.
 
 Given this, it would be practical to measure both heart-rate and breath rate in another way. Our group recommends using a pulse-oximeter to measure heartbeat and a temperature sensor to measure exhales. Using this array of sensors would remove any use of acceleration data. This would make the signal processing much simpler. Both heart rate and breath rate could be detected in real time and a moving average could be used to estimate the current value.
@@ -175,7 +175,7 @@ In terms of product creation, this software is ready for a beta launch! Refactor
 
 ___
 
-## Sources
+## <a id="Sources"></a> Sources ##
 
 Laskowski, Edward. “Heart Rate: What’s Normal?” Mayo Clinic, 2 Oct. 2020, www.mayoclinic.org/healthy-lifestyle/fitness/expert-answers/heart-rate/faq-20057979.
 
