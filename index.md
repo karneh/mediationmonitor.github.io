@@ -106,6 +106,9 @@ Figure 4: Raw Acceleration
 
 We then split the data into smaller time chunks in order to examine how metrics like breathing rate and heart rate vary throughout the meditation session.
 
+Figure 5: Control Data FFT
+<img src="images/ControlDataFFT.jpg" width="400"/> 
+
 *The algorithm(s) for data analysis should demonstrate a clear understanding of Fourier analysis, frequency and time domains, and motion model dynamics. The project website should clearly explain the application of the algorithm to the experimental data through the use of appropriate equations and graphics.*
 
 <details>
@@ -114,6 +117,7 @@ We then split the data into smaller time chunks in order to examine how metrics 
 To validate our method we performed a first pass analysis on a constructed signal with the frequencies of interest.
 Below is a plot of the signal generated in the time domain. This signal has both a .95 Hz and 0.2 Hz signal in the dataset. These two frequencies represent a heart and breath rate respectively. 
 
+Figure :
 <img src="images/sim_time.png" width="400"/> 
 
 ***Time domain plot of simulated signal w/noise (.2 Hz and .95 Hz signals)***
@@ -128,6 +132,7 @@ This plot informs us of several things. We do indeed see the presence of the fre
 
 One idea we had was to remedy this problem by using the additional parameter that controls the size of the matrix used to calculate the fft of our signal (https://www.mathworks.com/help/matlab/ref/fft.html#f83-998360-n)[https://www.mathworks.com/help/matlab/ref/fft.html#f83-998360-n]. This parameter could generate more points between a given range in our plot and allow us to look at a more dense range of frequencies.
 
+Figure :
 <img src="images/sim_freq.png" width="00"/> <img src="images/sim_freq_double.png" width="400"/> 
 
 ***Above are two plots showing the same frequency domain plot using fft(x, length(x)) and fft(x, 2*length(x)) respectively***
