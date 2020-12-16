@@ -106,6 +106,8 @@ Figure 4: Raw Acceleration
 
 We then split the data into smaller time chunks in order to examine how metrics like breathing rate and heart rate vary throughout the meditation session.
 
+AFter looking at the FFT of the control data, we decided to filter out the control data. The reasoning for this is that the amplitudes in the frequency range of interest (0.1 - 1.5 Hz) were pretty significant as shown in Figure 5. Our method of filtering involves subtracting the FFT of the control data from the FFT of the actual data. 
+
 Figure 5: Control Data FFT
 <img src="images/ControlDataFFT.jpg" width="400"/> 
 
