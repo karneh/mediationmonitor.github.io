@@ -94,14 +94,14 @@ We chose to position the accelerometer directly overtop the heart in hopes of be
 ___
 
 ## <a id="Analytical_Method"></a> Analytical Method
-*Our analysis includes the following steps:
-*1. Trim data (accel) --> subtract control
-*2. fft
-*3. fftshift
-*4. Filter out unecessary frequencies (using band pass filter, how we determine frequency range)
-*5. Plot
+*Our analysis includes the following steps:*
+*1. Trim data (accel) --> subtract control*
+*2. fft*
+*3. fftshift*
+*4. Filter out unecessary frequencies (using band pass filter, how we determine frequency range)*
+*5. Plot*
 
-*The algorithm(s) for data analysis should demonstrate a clear understanding of Fourier analysis, frequency and time domains, and motion model dynamics. The project website should clearly explain the application of the algorithm to the experimental data through the use of appropriate equations and graphics.
+*The algorithm(s) for data analysis should demonstrate a clear understanding of Fourier analysis, frequency and time domains, and motion model dynamics. The project website should clearly explain the application of the algorithm to the experimental data through the use of appropriate equations and graphics.*
 
 <details>
   <summary>Method Validation</summary>
@@ -188,12 +188,26 @@ ___
 ## <a id="Next_Steps"></a> Next steps
 Many of the above limitations/problems are caused by the use of an accelerometer to measure both heartbeat and breath rate. The other limitations tend to fall into the fact that both heart rate and breath rate can vary over time.
 
+<details>
+  <summary>Different Sensor</summary>
+
 Given this, it would be practical to measure both heart-rate and breath rate in another way. Our group recommends using a pulse-oximeter to measure heartbeat and a temperature sensor to measure exhales. Using this array of sensors would remove any use of acceleration data. This would make the signal processing much simpler. Both heart rate and breath rate could be detected in real time and a moving average could be used to estimate the current value.
 
+</details>
+
+<details>
+  <summary>Size of FFT Matrix</summary>
+  
 If the project were to continue using an accelerometer as the primary sensor then the current processes used could be improved. One problem identified is the lack of discrete frequencies calculated in the ranges that were of interest. To obtain a better understanding of this range the size of the FFT matrix calculated by the fft function could be increased. This would yield a denser spread of frequencies within the desired ranges. 
 
+</details>
+
+<details>
+  <summary>Product Creaction</summary>
+  
 In terms of product creation, this software is ready for a beta launch! Refactoring our code into a smartphone app is the final step. This app would be able to parse an entire meditation session into smaller time chunks and then allow the user to look back at portions of their session that were above or below their recommended breathing and heart rates.
 
+</details>
 ___
 
 ## <a id="Sources"></a> Sources
