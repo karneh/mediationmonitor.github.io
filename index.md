@@ -1,4 +1,4 @@
-## <a id="Abstract"></a> Abstract
+## <a id="Abstract"></a> Introduction
 
 Our project goal is to be able to detect breathing and heartbeat patterns while a person meditates. 
 Given that meditation is very focused on the breath, 
@@ -61,7 +61,7 @@ To observe and measure meditation with an accelerometer, we must have a base und
 
 Heartbeats are easily measured by one’s own fingers. We can sense the “pulse” of increased blood flow in our veins. The accelerometer seeks to do something extremely similar. If the accelerometer was positioned normal to the heartbeat (so that the movement due to heartbeat was in 1 axis) we would expect the phone to accelerate up and down due to the change of blood flow.
 
-One cycle, or one heartbeat, should correspond to one period of our acceleration normal to the heartbeat. From our research we know that the heart rate of individuals in meditation to be between 50-100 bpm[SOURCE NUM]. This means that we can expect to see this 50-100bpm (.8-1.6hz) signal present in our acceleration data.
+One cycle, or one heartbeat, should correspond to one period of our acceleration normal to the heartbeat. From our research we know that the heart rate of individuals in meditation to be between 50-100 bpm[SOURCE NUM]. This means that we can expect to see this 50-100bpm (.8-1.6 Hz) signal present in our acceleration data.
 
 The above analysis is based on the fact that the phone is positioned normal to the observed motion. Our sensor choice does not gurantee this. For this reason, we expect to see accelerations matching these frequencies in all axes.
 
@@ -72,7 +72,7 @@ The above analysis is based on the fact that the phone is positioned normal to t
 
 Breathing is arguably more complex motion than the heartbeat, one reason is since it can be controlled by the individual. Our experiment seeks to measure the rise and fall of the subject’s chest while breathing. This motion should also be cyclical in nature. 
 
-We can expect an acceleration while inhaling and corresponding acceleration when exhaling. This means that we should large amounts of the frequencies with the breathing rate (.1-.5hz)[SOURCE] Once again this motion should be primarily recorded in one axis. However, the phone will not be placed perfectly on the body so we can expect to see corresponding signals/frequencies in all axes.
+We can expect an acceleration while inhaling and corresponding acceleration when exhaling. This means that we should large amounts of the frequencies with the breathing rate (.1-.5 Hz)[SOURCE] Once again this motion should be primarily recorded in one axis. However, the phone will not be placed perfectly on the body so we can expect to see corresponding signals/frequencies in all axes.
 
 The motion of breathing causes the phone to move much more than a heartbeat. This will cause the sensor to potentially move throughout measurement collection. This could introduce error into our data. 
 
@@ -80,7 +80,7 @@ We expect a raw acceleration plot to look something like this:
 
 <img src="images/sim_time.jpg" width="400"/>
 
-***Generated wave with .95hz(heartbeat) and .2hz(breathrate) sine waves ***
+***Generated wave with .95 Hz(heartbeat) and .2 Hz(breathrate) sine waves ***
 
 </details>
 
@@ -107,19 +107,19 @@ ___
   <summary>Method Validation</summary>
   
 To validate our method we performed a first pass analysis on a constructed signal with the frequencies of interest.
-Below is a plot of the signal generated in the time domain. This signal has both a .95 hz and 0.2 hz signal in the dataset. These two frequencies represent a heart and breath rate respectively. 
+Below is a plot of the signal generated in the time domain. This signal has both a .95 Hz and 0.2 Hz signal in the dataset. These two frequencies represent a heart and breath rate respectively. 
 
 <img src="images/sim_time.png" width="400"/> 
 
-***Time domain plot of simulated signal w/noise (.2hz and .95 hz signals)***
+***Time domain plot of simulated signal w/noise (.2 Hz and .95 Hz signals)***
 
-This signal is then converted into the frequency showing using Matlab’s FFT (Fast Fourier Transform) function ()[INSERT LINK]. This indicates how much of a certain frequency is present in a sample. Below is the figure generated from the FFT function. This signal has been shifted into the frequency domain (hz).
+This signal is then converted into the frequency showing using Matlab’s FFT (Fast Fourier Transform) function ()[INSERT LINK]. This indicates how much of a certain frequency is present in a sample. Below is the figure generated from the FFT function. This signal has been shifted into the frequency domain (Hz).
 
 <img src="images/sim_freq.png" width="400"/> 
 
 ***Frequency domain plot of simulated signal***
 
-This plot informs us of several things. We do indeed see the presence of the frequencies of interest. Interestingly, there is no maximum amplitude centered around the 0.95hz value. Instead it appears that there are sligh spikes at .9 and 1 hz. This case shows the shortcoming of our process. In the case where a frequency is present in our signal but not aligned with the frequencies used in the fft function the “real” frequency can be masked.
+This plot informs us of several things. We do indeed see the presence of the frequencies of interest. Interestingly, there is no maximum amplitude centered around the 0.95 Hz value. Instead it appears that there are sligh spikes at .9 and 1 Hz. This case shows the shortcoming of our process. In the case where a frequency is present in our signal but not aligned with the frequencies used in the fft function the “real” frequency can be masked.
 
 One idea we had was to remedy this problem by using the additional parameter that controls the size of the matrix used to calculate the fft of our signal (https://www.mathworks.com/help/matlab/ref/fft.html#f83-998360-n)[https://www.mathworks.com/help/matlab/ref/fft.html#f83-998360-n]. This parameter could generate more points between a given range in our plot and allow us to look at a more dense range of frequencies.
 
@@ -127,7 +127,7 @@ One idea we had was to remedy this problem by using the additional parameter tha
 
 ***Above are two plots showing the same frequency domain plot using fft(x, length(x)) and fft(x, 2*length(x)) respectively***
 
-These graphics show that while this doesn’t create the ideal behavior(other noise in the signal seems to be increased), it does create spikes centered around the expected values at .2 and .95hz. Unfortunately, this yields other spikes in non-interesting frequencies. Adjusting the __N__ parameter is worth testing, however, from this data a simple weighted average of the regions of interest would yield the same peak.
+These graphics show that while this doesn’t create the ideal behavior(other noise in the signal seems to be increased), it does create spikes centered around the expected values at .2 and .95 Hz. Unfortunately, this yields other spikes in non-interesting frequencies. Adjusting the __N__ parameter is worth testing, however, from this data a simple weighted average of the regions of interest would yield the same peak.
 
 Another problem we have identified is the fact that the frequencies will change over time.
 
@@ -165,7 +165,7 @@ This project is far from perfect and there are a variety of things that could be
   <ul>
     <li>Fourier transforms of time chunks yield presence of certain frequencies (not every frequency). This may makes our breath rate and heart rate detection difficult as we are choosing one frequency with the highest amplitude out of a small number (see figures)</li>
     <li>Raw accelerometer data is unfiltered</li>
-    <li>Limited in sampling frequency between 10-100hz</li>
+    <li>Limited in sampling frequency between 10-100 Hz</li>
   </ul>
 
 </details>
