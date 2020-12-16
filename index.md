@@ -31,14 +31,16 @@ We collected various one minute and five minute samples of someone lying down an
 We chose to use a Pixel phone's accelerometer as our sensor. This selection was made primarily because we knew the focus of our project was on acceleration data. We also knew that for those new to meditation, a phone is often already present and used as a meditation guide. As such, we decided a phone was the most accessible and reliable sensor for the purposes of this project. 
   
 The phone was oriented with the following axes:
-<p style="text-align: center;">Figure 1: Sensor Orientation</p>
+
+Figure 1: Sensor Orientation
 <img src="images/phone_orien.png" width="250"/>
 
 </details>
 
 <details>
   <summary>Set Up</summary>
-  <p style="text-align: center;">Figure 1: Experimental Set Up</p>
+  
+Figure 2: Experimental Set Up
   <img src="images/nathan_side.jpg" width="300"/> <img src="images/nathan_top.jpg" height="225"/> 
   
 To collect data, we simply placed our sensor (the phone) on the chest of the person whose data is being collected. We found that the chest was the optimal placement compared to other places on the body, since it was where our sensor could register heartbeat and breathing.
@@ -79,6 +81,7 @@ The motion of breathing causes the phone to move much more than a heartbeat. Thi
 
 We expect a raw acceleration plot to look something like this:
 
+Figure 3: Raw Acceleration
 <img src="images/sim_time.jpg" width="400"/>
 
 ***Generated wave with .95 Hz(heartbeat) and .2 Hz(breathrate) sine waves ***
