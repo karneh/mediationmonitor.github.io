@@ -6,7 +6,7 @@ Given that meditation is very focused on the breath,
 We plan to use our smartphone as the sensor, and we will collect data by finding an optimal placement on our chest to measure frequency of breathing and heartbeat.
 
 <details style="margin-bottom:4px; border:none;">
-  <summary style="font-size:16px; color:green>Background</summary>
+  <summary style="font-size:16px; color:green;">Background</summary>
 There are not many existing quantitative measures of meditation that are reliable. Electroencephalogram (EEG), the detection of electrical activity in the brain, and heart rate variability (HRV) are two existing methods, though they are both responses that take a long time to detect patterns from. Breath rate, however, is a measure that is controlled by meditation and can have changes detected over a short period of time.
 </details>
 
