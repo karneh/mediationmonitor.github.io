@@ -5,8 +5,8 @@ Given that meditation is very focused on the breath,
 **our goal is to help detect if someone is focused or not focused during their meditation session based on how they are breathing**. 
 We plan to use our smartphone as the sensor, and we will collect data by finding an optimal placement on our chest to measure frequency of breathing and heartbeat.
 
-<details margin-bottom="4px" border="none">
-  <summary font-size="16px" color="green">Background</summary>
+<details style="margin-bottom:4px; border:none;">
+  <summary style="font-size:16px; color:green>Background</summary>
 There are not many existing quantitative measures of meditation that are reliable. Electroencephalogram (EEG), the detection of electrical activity in the brain, and heart rate variability (HRV) are two existing methods, though they are both responses that take a long time to detect patterns from. Breath rate, however, is a measure that is controlled by meditation and can have changes detected over a short period of time.
 </details>
 
@@ -18,18 +18,29 @@ We believe that we can help people new to meditation better understand their med
 ___
 
 ## <a id="Data_Collection"></a> Data Collection Method ##
-*You should explain how your model informed your data collection, and what, if any, modifications were made to the model following experimentation. The proof-of-concept should include a selection of sensors that are appropriate for the specific application. The experiment(s) should demonstrate some aspect of how the product would work in reality. Next steps for the proof-of-concept (e.g. additional experiments, changes to the design) should be well articulated.*
 
-We collected various one minute and five minute samples of someone lying down and meditating, alongside one minute and five minute control samples of the phone lying in the same orientation and location.
+We collected various one minute and five minute samples of someone lying down and meditating, alongside one minute and five minute control samples of the phone lying in the same orientation and location. The purpose of our control samples were so that we could subtract any noise present in our meditation samples.
 
-<img src="images/nathan_side.jpg" width="300"/> <img src="images/nathan_top.jpg" height="225"/> 
-
-The sensor, a Pixel phone, was oriented with the following axes:
+<details>
+  <summary>Sensor Choice</summary>
+  We chose to use a Pixel phone's accelerometer as our sensor. This selection was made primarily because we knew the focus of our project was on acceleration data. We also knew that for those new to meditation, a phone is often already present and used as a meditation guide. As such, we decided a phone was the most accessible and reliable sensor for the purposes of this project. 
+  
+  The phone was oriented with the following axes:
 
 <img src="images/phone_orien.png" width="300"/>
+</details>
 
-#### Sample Rate
-We chose a sample rate by doing XYZ...
+<details>
+  <summary>Set Up</summary>
+  <img src="images/nathan_side.jpg" width="300"/> <img src="images/nathan_top.jpg" height="225"/> 
+  
+  To collect data, we simply placed our sensor (the phone) on the chest of the person whose data is being collected. We found that the chest was the optimal placement compared to other places on the body, since it was where our sensor could register heartbeat and breathing.
+</details>
+
+<details>
+  <summary>Sample Rate</summary>
+  Given the fact that heartbeat is about 0.66 - 1.33 Hz and breath rate is about 0.16 - 0.25 Hz, we wanted a sample rate greater than those ranges to make sure it could pick up both patterns. We started off with data sampled at 10 Hz and then transitioned to 50 Hz after discovering (through trial and error) that data sampled at 50 Hz gave us more data points to analyze.
+</details>
 
 ___
 
