@@ -156,7 +156,59 @@ These graphics show that while this doesn’t create the ideal behavior(other no
 Another problem we have identified is the fact that the frequencies will change over time.
 
 In order to understand what our fft would do to an input signal with a varying frequency 
+
+## Understanding what to expect with varying frequencies
+___ 
+##### Data Preparation and Observation
+In order to understand what our fft would do to an input signal with a varying frequency we simulated a signal that had a varying breath rate and constant heart rate (FIGURE 1.ABAN)T 
+TIME DOMAIN PLOT OF VARYING FREQUENCY)
 TBC
+__Figure 3.5 Simulated 30 second sample (50 Hz), breath rate changes from .3-.1, heart rate is a constant 1 Hz __
+
+This signal is more representative of what we expect our incoming data to be. We also added noise to the signal shown in blue.
+
+We are interested in the frequencies present in this signal. To examine this we take a fft of the entire 30 second chunk. This yields us *Figure 3.1FSDKFLJ* which shows a clear spike at 1 Hz for the heartbeat and an increased amplitude in the range [0.1 - 0.3] Hz.
+
+![sim_vary_breathrate_freq](sim_vary_breathrate_freq.png) 
+
+The results shown in  *Figure 3.slkjfsdlkfj* highlight exactly what we were trying to avoid -- unclear measurements of the frequencies present in the signal. Our plan to avoid this behavior is to sample smaller time chunks of an entire sample. For example we would look at 30 second chunks of a 5 minute sample. In this simulated
+
+#### Investigating Potential Solutions
+__*Sub-Sampling*__
+Breaking a signal into smaller samples is a valid way to remove the presence of a changing frequency -- because there is less frequency change in a truncated sample [assuming constant variation of frequency]. Unfortunately, having smaller samples also comes at a price -- here is less data, and that will make it harder to pick up the frequencies present in the signal(due to the functionality of the FFT function).
+
+We experimented with breaking this signal into smaller sub samples. These samples were then transformed into the frequency domain. These samples for 3, 6 and 12 second samples are shown in   _FIGURE 1_ , _FIGURE2_ and _FIGURE3_ respectively.
+
+![sim_vary_breathrate_freq_3sec](images/sim_vary_breathrate_freq_3sec) 
+_*Figure 45345 FFT of 3 second sub-sample with varying breathrate [0.3-0.1] Hz and constant 1 Hz heart rate*_
+
+![sim_vary_breathrate_freq_6sec](images/sim_vary_breathrate_freq_6sec) 
+
+_*Figure 45345 FFT of 6 second sub-sample with varying breathrate [0.3-0.1] Hz and constant 1 Hz heart rate*_
+
+![sim_vary_breathrate_freq_12sec](images/sim_vary_breathrate_freq_12sec) 
+
+_*Figure 45345 FFT of 12 second sub-sample with varying breathrate [0.3-0.1] Hz and constant 1 Hz heart rate*_
+
+__*Increase Frequency Resolution in Transformed signal*__
+As we shown in Figure (TOP FIGURE WITH HUGE N VALUE) sometimes using a larger *N* parameter in Matlab’s fft can help us understand the frequency plot of our signal.
+
+We were especially interested if this strategy would help us when the frequency content in a signal is changing. The simulated and chunked data was examined with and without filtering to see if it yielded better results. The filtering was done by band pass filter in which the amplitude of all frequencies that were not a possible heart rate (CITE THIS) or breath rate (CITE THIS) were divided by ten. 
+![](figure 3sec normal) 
+_*Figure12 .1 *_
+![](figure 3sec double) 
+![](figure 3sec double filtered) 
+
+![](figure 6sec normal) 
+![](figure 6sec doubled) 
+![](figure 6sec doubled filtered) 
+
+![](figure 12sec normal) 
+![](figure 12sec doubled)
+![](figure 12sec doubled filtered)  
+
+__
+
 
 </details>
 
