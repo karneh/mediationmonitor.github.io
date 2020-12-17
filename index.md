@@ -130,10 +130,10 @@ At this point, we decided to implement a band pass filter to decrease the amplit
 To validate our method we performed a first pass analysis on a constructed signal with the frequencies of interest.
 Below is a plot of the signal generated in the time domain. This signal has both a .95 Hz and 0.2 Hz signal in the dataset. These two frequencies represent a heart and breath rate respectively. 
 
-Figure :
+
 <img src="images/sim_time.png" width="400"/> 
 
-***Time domain plot of simulated signal w/noise (.2 Hz and .95 Hz signals)***
+__Time domain plot of simulated signal w/noise (.2 Hz and .95 Hz signals)__
 
 This signal is then converted into the frequency showing using Matlab’s FFT (Fast Fourier Transform) function ()[INSERT LINK]. This indicates how much of a certain frequency is present in a sample. Below is the figure generated from the FFT function. This signal has been shifted into the frequency domain (Hz).
 
@@ -158,11 +158,12 @@ Another problem we have identified is the fact that the frequencies will change 
 In order to understand what our fft would do to an input signal with a varying frequency 
 
 ## Understanding what to expect with varying frequencies
-___ 
+
 ##### Data Preparation and Observation
 In order to understand what our fft would do to an input signal with a varying frequency we simulated a signal that had a varying breath rate and constant heart rate (FIGURE 1.ABAN)T 
+
 TIME DOMAIN PLOT OF VARYING FREQUENCY)
-TBC
+
 __Figure 3.5 Simulated 30 second sample (50 Hz), breath rate changes from .3-.1, heart rate is a constant 1 Hz __
 
 This signal is more representative of what we expect our incoming data to be. We also added noise to the signal shown in blue.
@@ -194,20 +195,24 @@ __*Increase Frequency Resolution in Transformed signal*__
 As we shown in Figure (TOP FIGURE WITH HUGE N VALUE) sometimes using a larger *N* parameter in Matlab’s fft can help us understand the frequency plot of our signal.
 
 We were especially interested if this strategy would help us when the frequency content in a signal is changing. The simulated and chunked data was examined with and without filtering to see if it yielded better results. The filtering was done by band pass filter in which the amplitude of all frequencies that were not a possible heart rate (CITE THIS) or breath rate (CITE THIS) were divided by ten. 
+
 ![](figure 3sec normal) 
 _*Figure12 .1 *_
 ![](figure 3sec double) 
+
 ![](figure 3sec double filtered) 
 
 ![](figure 6sec normal) 
+
 ![](figure 6sec doubled) 
+
 ![](figure 6sec doubled filtered) 
 
 ![](figure 12sec normal) 
-![](figure 12sec doubled)
-![](figure 12sec doubled filtered)  
 
-__
+![](figure 12sec doubled)
+
+![](figure 12sec doubled filtered)  
 
 
 </details>
