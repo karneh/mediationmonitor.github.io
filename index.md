@@ -1,9 +1,8 @@
-## <a id="Abstract"></a> Introduction
+## <a id="Introduction"></a> Introduction
 
-Our project goal is to be able to detect breathing and heartbeat patterns while a person meditates. 
-Given that meditation is very focused on the breath, 
-*our goal is to help detect if someone is focused or not focused during their meditation session based on how they are breathing*. 
-We plan to use our smartphone as the sensor, and we will collect data by finding an optimal placement on our chest to measure frequency of breathing and heartbeat.
+Our project goal is to be able to detect breathing and heartbeat patterns while a person meditates. The meditation style we're focusing on is shavasana meditation, where someone is lying down and focusing on their breath. 
+
+*Our goal is to help people new to meditation understand heartbeat and breathing patterns they experience through their meditation sessions*. We plan to use our smartphone as the sensor, and we will collect data by finding an optimal placement on our chest to measure frequency of breathing and heartbeat.
 
 <details>
   <summary>Background</summary>
@@ -13,9 +12,9 @@ There are not many existing quantitative measures of meditation that are reliabl
 </details>
 
 <details>
-  <summary>Use Case</summary>
+  <summary>Value Creation</summary>
 
-We believe that we can help people new to meditation better understand their meditative patterns through breath rate detection and heart rate detection. Our app would be able to help those new to meditation re-focus themselves during the session if it detects their breath rate and heart rate are not stable (meaning they are not focused).
+We believe that we can help people new to meditation better understand their meditative patterns through showing them a summary of their heartbeat and breathing patterns after the session. Quantitative analysis of meditation!
 
 </details>
 
