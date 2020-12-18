@@ -60,3 +60,14 @@ figure {
   background-image: linear-gradient(120deg, $header-bg-color-secondary, $header-bg-color);
   text-align: center;
 }
+
+.btn-github {
+  display: inline-block;
+  margin-bottom: 1rem;
+  color: rgba(255, 255, 255, 0.7);
+  transition: color 0.2s, background-color 0.2s, border-color 0.2s;
+
+  &:hover {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+}
