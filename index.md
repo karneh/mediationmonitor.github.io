@@ -169,7 +169,7 @@ During meditation, we expect the breathing rate to change over time. As such, we
 
 This signal **Figure 4.e** is more representative of what we expect our incoming data to be. We also added noise to the signal shown in blue.
 
-We are interested in the frequencies present in this signal. To examine this we take a fft of the entire 30 second chunk. This yields us **Figure 4.f** which shows a clear spike at 1 Hz for the heartbeat and an increased amplitude in the range [0.1 - 0.3] Hz.
+We are interested in the frequencies present in this signal. To examine this we take a fft of the entire 30 second chunk. This yields us **Figure 4.f** which shows a spike at 1 Hz for the heartbeat and an increased amplitude in the range [0.1 - 0.3] Hz.
 
 <figure>
   <img src="images/sim_vary_breathrate_freq.png"/> 
@@ -178,7 +178,7 @@ We are interested in the frequencies present in this signal. To examine this we 
 
 The results shown in  **Figure 4.f** highlight exactly what we were trying to avoid -- unclear peaks of the frequencies present in the signal.
 
-#### Investigating Solutions to Unclear 
+#### Interpreting frequency domain plots with varying frequencies
 
 __Sub-Sampling__
 
@@ -195,7 +195,7 @@ We experimented with breaking this signal into smaller sub samples. These sample
   <figcaption> <b> Figure 4.g </b> FFT of 3, 6, and 12s sub-sample, respectively, with varying breathrate [0.3-0.1] Hz and 1 Hz heart rate</figcaption>
 </figure>
 
-**Figure 4.g** shows that longer samples yield more detailed and accurate frequency domain plot. In the longest sample, we can see a clear peak near 1 Hz, whereas the shorter samples do not show this peak. This indicates that while splitting the data will allow us to see different frequencies over time, samples must long enough to result in a useful frequency domain plot.
+**Figure 4.g** shows that longer samples yield more detailed and accurate frequency domain plot. In the longest sample, we can see a peak near 1 Hz, whereas the shorter samples do not show this peak. This indicates that while splitting the data will allow us to see different frequencies over time, samples must long enough to result in a useful frequency domain plot.
 
 __Increase Frequency Resolution in Transformed signal__
 
