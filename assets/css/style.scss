@@ -50,3 +50,11 @@ figure {
     padding: 8px 0px;
   }
 }
+
+.stick-menu {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #159957;
+}
