@@ -33,7 +33,7 @@ The phone was oriented with the following axes:
 
 <figure>
   <img src="images/phone_orien.png" style="width:250;"/>
-  <figcaption>Figure 1: Sensor Orientation</figcaption>
+  <figcaption>Figure 1.a: Sensor Orientation</figcaption>
 </figure>
 
 </details>
@@ -48,14 +48,14 @@ Given the fact that heartbeat is about 0.66 - 1.33 Hz and breath rate is about 0
 <details>
   <summary>Set Up</summary>
   
-We chose to position the accelerometer directly overtop the heart in hopes of being able to capture the heartbeat (the accelerations from the heartbeat will be of much smaller magnitude than breathing). This placement will allow the monitoring of breath and heart rate and will minimize other unwanted sensor movements like someone flexing their abs or moving their neck. This position will also record near-zero angular velocities as almost all of the acceleration is normal to the phone.
+We chose to position the accelerometer directly overtop the heart *Figure 2.a* in hopes of being able to capture the heartbeat (the accelerations from the heartbeat will be of much smaller magnitude than breathing). This placement will allow the monitoring of breath and heart rate and will minimize other unwanted sensor movements like someone flexing their abs or moving their neck. This position will also record near-zero angular velocities as almost all of the acceleration is normal to the phone.
 
 <figure>
   <div style="display:flex; justify-content:center;">
     <img src="images/nathan_side.jpg" style="width:300px; display:inline"/>
     <img src="images/nathan_top.jpg" style="height:225px; display:inline"/>
   </div>
-  <figcaption>Figure 2: Experimental Set Up</figcaption>
+  <figcaption>Figure 2.: Experimental Set Up</figcaption>
 </figure>  
 
 To collect data, we placed our sensor (the phone) on the chest of the person whose data is being collected. We found that the chest was the optimal placement compared to other places on the body, since it was where our sensor could register heartbeat and breathing. 
@@ -92,8 +92,8 @@ We expect a raw acceleration plot to look something like this (Y axis not to sca
 
 <figure>
   <img src="images/sim_time.png"/>
-  <figcaption>Figure 3: Theoretical Acceleration</figcaption>
-  <figcaption>Generated acceleration wave with .95 Hz(heartbeat) and .2 Hz(breathrate) sine waves</figcaption>
+  <figcaption></figcaption>
+  <figcaption> __Figure 3.a__: Generated acceleration wave with .95 Hz(heartbeat) and .2 Hz(breathrate) sine waves</figcaption>
 </figure>
 
 </details>
