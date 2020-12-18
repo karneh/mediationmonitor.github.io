@@ -2,19 +2,19 @@
 
 Our project goal is to be able to detect breathing and heartbeat patterns while a person meditates. The meditation style we're focusing on is shavasana meditation, where someone is lying down and focusing on their breath. 
 
-*Our goal is to help people new to meditation understand heartbeat and breathing patterns they experience through their meditation sessions*. We plan to use our smartphone as the sensor, and we will collect data by finding an optimal placement on our chest to measure frequency of breathing and heartbeat.
+*We aim to help people new to meditation understand heartbeat and breathing patterns they experience through their meditation sessions*. We plan to use a smartphone accelerometer to obtain motion data while someone meditates. The smartphone will be placed on the person's chest and after we obtain the data we will process it to show breathing and heart rates. The final result will be a plot of the subject's breathing and heartbeat frequencies over time.
 
-<details>
+<details open>
   <summary>Background</summary>
 
-There are not many existing quantitative measures of meditation that are reliable. Electroencephalogram (EEG), the detection of electrical activity in the brain, and heart rate variability (HRV) are two existing methods, though they are both responses that take a long time to detect patterns from. Breath rate, however, is a measure that is controlled by meditation and can have changes detected over a short period of time.
+There are not many existing quantitative measures of meditation that are reliable[3]. Electroencephalogram (EEG), the detection of electrical activity in the brain, and heart rate variability (HRV) are two existing methods, However, they are both responses that take a long time to detect patterns from. Breath rate, however, is a measure that is controlled by meditation and can have changes detected over a short period of time, which is why we decided to focus on it. 
 
 </details>
 
-<details>
+<details open>
   <summary>Value Creation</summary>
 
-We believe that we can help people new to meditation better understand their meditative patterns through showing them a summary of their heartbeat and breathing patterns after the session. Quantitative analysis of meditation!
+We believe that we can help people meditate better! People old and new to meditation will be able to quantitatively monitor and assess their mediation by seeing  a summary of their heartbeat and breathing patterns after the session.
 
 </details>
 
@@ -22,7 +22,7 @@ ___
 
 ## <a id="Data_Collection"></a> Data Collection Method
 
-We collected various one minute and five minute samples of someone lying down and meditating, alongside one minute and five minute control samples of the phone lying in the same orientation and location. The purpose of our control samples were so that we could subtract any noise present in our meditation samples.
+We collected various one minute and five minute samples of someone lying down and meditatin as well as corrresponding control samples of the phone lying in the same orientation and location (but not on a person). 
 
 <details>
   <summary>Sensor Choice</summary>
@@ -39,7 +39,15 @@ The phone was oriented with the following axes:
 </details>
 
 <details>
+  <summary>Sample Rate</summary>
+
+Given the fact that heartbeat is about 0.66 - 1.33 Hz and breath rate is about 0.16 - 0.25 Hz, we wanted a sample rate greater than those ranges to make sure it could pick up both patterns. We started off with data sampled at 10 Hz and then transitioned to 50 Hz after discovering (through trial and error) that data sampled at 50 Hz gave us more data points to analyze.
+
+</details>
+
+<details>
   <summary>Set Up</summary>
+We chose to position the accelerometer directly overtop the heart in hopes of being able to capture the heartbeat (the accelerations from the heartbeat will be of much smaller magnitude than breathing). This placement will allow the monitoring of breath  and hear rate and will minimize other unwanted sensor movements like someone flexing their abs or moving their neck. This position will also record near-zero angular velocities as almost all of the acceleration is normal to the phone.
 
 <figure>
   <div style="display:flex; justify-content:center;">
@@ -49,14 +57,7 @@ The phone was oriented with the following axes:
   <figcaption>Figure 2: Experimental Set Up</figcaption>
 </figure>  
 
-To collect data, we simply placed our sensor (the phone) on the chest of the person whose data is being collected. We found that the chest was the optimal placement compared to other places on the body, since it was where our sensor could register heartbeat and breathing.
-
-</details>
-
-<details>
-  <summary>Sample Rate</summary>
-
-Given the fact that heartbeat is about 0.66 - 1.33 Hz and breath rate is about 0.16 - 0.25 Hz, we wanted a sample rate greater than those ranges to make sure it could pick up both patterns. We started off with data sampled at 10 Hz and then transitioned to 50 Hz after discovering (through trial and error) that data sampled at 50 Hz gave us more data points to analyze.
+To collect data, we simply placed our sensor (the phone) on the chest of the person whose data is being collected. We found that the chest was the optimal placement compared to other places on the body, since it was where our sensor could register heartbeat and breathing. We recorded more than 5 datasets containing more than 5 minutes of meditation. We also recorded control datasets where the phone was simply sitting in the smae orientation as the other datasets. These datasets will be used to remove error accelerations present in our environment.
 
 </details>
 
@@ -92,13 +93,6 @@ We expect a raw acceleration plot to look something like this:
   <img src="images/sim_time.png"/>
   <figcaption>Figure 3: Theoretical Acceleration</figcaption>
 </figure>
-
-</details>
-
-<details>
-  <summary>Design decisions based on motion</summary>
-  
-We chose to position the accelerometer directly overtop the heart in hopes of being able to capture the heartbeat (the accelerations from the heartbeat will be of much smaller magnitude than breathing). This placement will allow the monitoring of breath rate at the same time as the heart rate and will minimize other unwanted sensor movements like someone flexing their abs or moving their neck. This position will also have a near zero angular velocity as almost all of the movement is normal to the phone and doesn’t change its rotation around any axes.
 
 </details>
 
