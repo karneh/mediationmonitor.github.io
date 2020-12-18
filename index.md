@@ -236,7 +236,7 @@ We were especially interested if this strategy would help us when the frequency 
 
 <br>
 
-**Figures 4.h-4.j** show how effective our methods are. The plots *should* all show a large precense of frequencies between 0.3-0.1 Hz and a 1 Hz signal. FIGURE BOTTOM FIGURE shows how longer time samples help distinguish the presence of these frequencies. Surprisingly, using a larger N value (to increase the plot resolution) does not help or yield new information in the frequency domain plot. The same goes for the plot that is made from a filtered signal (the third subplot in **Figures 4.h- 4.j**).
+**Figures 4.h-4.j** show how effective our methods are. The plots *should* all show a large precense of frequencies between 0.3-0.1 Hz and a 1 Hz signal. **Figure 4.j** shows how longer time samples help distinguish the presence of these frequencies. Surprisingly, using a larger N value (to increase the plot resolution) does not help or yield new information in the frequency domain plot. The same goes for the plot that is made from a filtered signal (the third subplot in **Figures 4.h- 4.j**).
 
 This changes our plan of analysis to only use the default FFT function and filter out signals outside of our ranges of interest.
 
@@ -267,7 +267,7 @@ After implementing the algorithm outlined above, we were able to plot and compar
   <figcaption> <b> Figure 5.a</b> : Subplot of filtered FFT of sub-samples</figcaption>
 </figure>
 
-From those frequency domain plots, we isolated the peaks in the range for heartbeat frequencies and the range for breath rate frequencies in each subsample. These peaks were plotted together, as shown in the figure below, so the user can visually see how their heartbeat and breathing patters are changing throughout the meditation session. 
+From the frequency domain plots in **Figure 5.a**, we isolated the peaks in the range for heartbeat frequencies and the range for breath rate frequencies in each subsample. These peaks were plotted together, as shown in the **Figure 5.b**, so the user can visually see how their heartbeat and breathing patters are changing throughout the meditation session. 
 
 <figure>
   <img src="images/overplot_results.jpg"/> 
