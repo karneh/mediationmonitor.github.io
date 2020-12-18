@@ -110,6 +110,13 @@ Before we began analyzing the data, trimming of the data was necessary. Figure 4
   <figcaption>Figure 4: Raw Acceleration</figcaption>
 </figure>
 
+Looking at a magnified portion of the data, there are large periodic peaks that seem to be correlated with a heart rate. Through extracting the x values, the frequency of those spiked would be approximately 1.38 Hz or 83bpm which is a reasonable value for a heartbeat.
+
+<figure>
+  <img src="images/zoomed_raw_data.jpg"/> 
+  <figcaption>Figure 4: Raw Acceleration</figcaption>
+</figure>
+
 </details>
 
 <details>
