@@ -31,26 +31,27 @@ We chose to use a Pixel phone's accelerometer as our sensor. This selection was 
   
 The phone was oriented with the following axes:
 
-Figure 1: Sensor Orientation
-
-<img src="images/phone_orien.png" width="250"/>
+<figure>
+  <figcaption>Figure 1: Sensor Orientation</figcaption>
+  <img src="images/phone_orien.png" width="250"/>
+</figure>
 
 </details>
 
 <details>
   <summary>Set Up</summary>
-  
-Figure 2: Experimental Set Up
 
+<figure>
+  <figcaption>Figure 2: Experimental Set Up</figcaption>
+  <img src="images/nathan_side.jpg" width="300"/> <img src="images/nathan_top.jpg" height="225"/> 
+</figure>  
 
-<img src="images/nathan_side.jpg" width="300"/> <img src="images/nathan_top.jpg" height="225"/> 
-  
 To collect data, we simply placed our sensor (the phone) on the chest of the person whose data is being collected. We found that the chest was the optimal placement compared to other places on the body, since it was where our sensor could register heartbeat and breathing.
 
 </details>
 
-<details style="margin-bottom:8px; border:none;">
-  <summary style="font-size:18px; color:#159957;" onfocus = "this.style.outline = 'none'">Sample Rate</summary>
+<details>
+  <summary>Sample Rate</summary>
 
 Given the fact that heartbeat is about 0.66 - 1.33 Hz and breath rate is about 0.16 - 0.25 Hz, we wanted a sample rate greater than those ranges to make sure it could pick up both patterns. We started off with data sampled at 10 Hz and then transitioned to 50 Hz after discovering (through trial and error) that data sampled at 50 Hz gave us more data points to analyze.
 
@@ -83,14 +84,11 @@ The motion of breathing causes the phone to move much more than a heartbeat. Thi
 
 We expect a raw acceleration plot to look something like this:
 
-
-Figure 3: Theoretical Acceleration
-
-
-
-<img class="centered" src="images/sim_time.png" width="400"/>
-
-***Generated wave with .95 Hz(heartbeat) and .2 Hz(breathrate) sine waves ***
+<figure>
+  <figcaption>Figure 3: Theoretical Acceleration</figcaption>
+  <figcpation>Generated wave with .95 Hz(heartbeat) and .2 Hz(breathrate) sine waves</figcaption>
+  <img src="images/sim_time.png"/>
+</figure>
 
 </details>
 
@@ -107,21 +105,21 @@ ___
 
 Before we began actually analyzing the data, some trimming of the data was necessary. In Figure 4, you can see that at the beginning and end of the accelerometer data has some peaks from when the screen is pressed to start data collection. Therefore, we made the decision to trim the very beginning and end of samples to remove these anomalies. 
 
-Figure 4: Raw Acceleration
-
-<img class="centered"  src="images/rawdata.jpg" width="400"/> 
+<figure>
+  <figcaption>Figure 4: Raw Acceleration</figcaption>
+  <img src="images/rawdata.jpg"/> 
+</figure>
 
 We then split the data into smaller time chunks in order to examine how metrics like breathing rate and heart rate vary throughout the meditation session.
 
 AFter looking at the FFT of the control data, we decided to filter out the control data. The reasoning for this is that the amplitudes in the frequency range of interest (0.1 - 1.5 Hz) were pretty significant as shown in Figure 5. Our method of filtering involves subtracting the FFT of the control data from the FFT of the actual data. 
 
-Figure 5: Control Data FFT
-
-<img class="centered" src="images/ControlDataFFT.jpg" width="600"/> 
+<figure>
+  <figcaption>Figure 5: Control Data FFT</figcaption>
+  <img src="images/ControlDataFFT.jpg"/> 
+</figure>
 
 At this point, we decided to implement a band pass filter to decrease the amplitude of frequencies we are not interested in. To choose the frequency ranges we looked up data on breath rates and heart rates.
-
-*The algorithm(s) for data analysis should demonstrate a clear understanding of Fourier analysis, frequency and time domains, and motion model dynamics. The project website should clearly explain the application of the algorithm to the experimental data through the use of appropriate equations and graphics.*
 
 <details>
   <summary>Method Validation</summary>
@@ -129,32 +127,31 @@ At this point, we decided to implement a band pass filter to decrease the amplit
 To validate our method we performed a first pass analysis on a constructed signal with the frequencies of interest.
 Below is a plot of the signal generated in the time domain. This signal has both a .95 Hz and 0.2 Hz signal in the dataset. These two frequencies represent a heart and breath rate respectively. 
 
-
-<img class="centered"  src="images/sim_time.png" width="600"/> 
-
-**Figure 12.j** _Time domain plot of simulated signal w/noise (.2 Hz and .95 Hz signals)_
+<figure>
+  <figcaption>Figure 12.j Time domain plot of simulated signal w/noise (.2 Hz and .95 Hz signals)</figcaption>
+  <img src="images/sim_time.png"/> 
+</figure>
 
 This signal is then converted into the frequency showing using Matlab’s FFT (Fast Fourier Transform) function ()[INSERT LINK]. This indicates how much of a certain frequency is present in a sample. Below is the figure generated from the FFT function. This signal has been shifted into the frequency domain (Hz).
 
-
-<img class="centered"  src="images/sim_freq.png" width="600"/> 
-
-**Figure 12.j** _Frequency domain plot of simulated signal shown in FIGURE ABOVE_
+<figure>
+  <figcaption>Figure 12.j Frequency domain plot of simulated signal shown in figure below</figcaption>
+  <img src="images/sim_freq.png"/> 
+</figure>
 
 This plot informs us of several things. We do indeed see the presence of the frequencies of interest. Interestingly, there is no maximum amplitude centered around the 0.95 Hz value. Instead it appears that there are sligh spikes at .9 and 1 Hz. This case shows the shortcoming of our process. In the case where a frequency is present in our signal but not aligned with the frequencies used in the fft function the “real” frequency can be masked.
 
 One idea we had was to remedy this problem by using the additional parameter that controls the size of the matrix used to calculate the fft of our signal (https://www.mathworks.com/help/matlab/ref/fft.html#f83-998360-n)[https://www.mathworks.com/help/matlab/ref/fft.html#f83-998360-n]. This parameter could generate more points between a given range in our plot and allow us to look at a more dense range of frequencies.
 
-
-<img src="images/sim_freq.png" width="400"/> <img src="images/sim_freq_double.png" width="400"/> 
-
-**Figure 12.j** _Frequency Domain using fft(x, length(x)) and fft(x, 2*length(x)) respectively_
+<figure>
+  <figcaption>Figure 12.j Frequency Domain using fft(x, length(x)) and fft(x, 2*length(x)) respectively</figcaption>
+  <div style="display:flex; justify-content:center;">
+    <img style="display:none;" src="images/sim_freq.png"/>
+    <img style="display:none;" src="images/sim_freq_double.png"/> 
+  </div>
+</figure>
 
 These graphics show that while this doesn’t create the ideal behavior(other noise in the signal seems to be increased), it does create spikes centered around the expected values at .2 and .95 Hz. Unfortunately, this yields other spikes in non-interesting frequencies. Adjusting the __N__ parameter is worth testing, however, from this data a simple weighted average of the regions of interest would yield the same peak.
-
-Another problem we have identified is the fact that the frequencies will change over time.
-
-In order to understand what our fft would do to an input signal with a varying frequency 
 
 #### Understanding what to expect with varying frequencies
 
@@ -218,9 +215,7 @@ We were especially interested if this strategy would help us when the frequency 
 
 <br>
 
-
 Looking at Figures ABOVE ONES shows how effective our methods are. The plots should all show a large present of a frequency between 0.3-0.1 Hz and a 1 Hz signal.  Figure BOTTOM FIGURE shows how the longer time sample helps distinguish the presence of these frequencies. Interstingly, using a larger N value (to increase the plot resolution) does not help or yield new information. The same goes for the FFT plot that is made from a filtered signal (the third subplot in Figures HTOSE ABOVE FIGURES) This changes our plan of analysis to just look only use the default FFT function and filter out signals outside of our ranges of interest.
-
 
 </details>
 
