@@ -156,9 +156,9 @@ Another problem we have identified is the fact that the frequencies will change 
 
 In order to understand what our fft would do to an input signal with a varying frequency 
 
-## Understanding what to expect with varying frequencies
+#### Understanding what to expect with varying frequencies
 
-##### Data Preparation and Observation
+__Data Preparation and Observation__
 In order to understand what our fft would do to an input signal with a varying frequency we simulated a signal that had a varying breath rate and constant heart rate (FIGURE 1.ABAN)T 
 
 TIME DOMAIN PLOT OF VARYING FREQUENCY)
@@ -179,16 +179,17 @@ Breaking a signal into smaller samples is a valid way to remove the presence of 
 
 We experimented with breaking this signal into smaller sub samples. These samples were then transformed into the frequency domain. These samples for 3, 6 and 12 second samples are shown in   _FIGURE 1_ , _FIGURE2_ and _FIGURE3_ respectively.
 
-![sim_vary_breathrate_freq_3sec](images/sim_vary_breathrate_freq_3sec) 
-_*Figure 45345 FFT of 3 second sub-sample with varying breathrate [0.3-0.1] Hz and constant 1 Hz heart rate*_
+<img src="images/sim_vary_breathrate_freq_3sec.png" width="400"/> 
 
-![sim_vary_breathrate_freq_6sec](images/sim_vary_breathrate_freq_6sec) 
+*Figure 45345 FFT of 3 second sub-sample with varying breathrate [0.3-0.1] Hz and constant 1 Hz heart rate*
 
-_*Figure 45345 FFT of 6 second sub-sample with varying breathrate [0.3-0.1] Hz and constant 1 Hz heart rate*_
+<img src="images/sim_vary_breathrate_freq_6sec.png" width="400"/> 
 
-![sim_vary_breathrate_freq_12sec](images/sim_vary_breathrate_freq_12sec) 
+*Figure 45345 FFT of 6 second sub-sample with varying breathrate [0.3-0.1] Hz and constant 1 Hz heart rate*
 
-_*Figure 45345 FFT of 12 second sub-sample with varying breathrate [0.3-0.1] Hz and constant 1 Hz heart rate*_
+<img src="images/sim_vary_breathrate_freq_12sec.png" width="400"/> 
+
+*Figure 45345 FFT of 12 second sub-sample with varying breathrate [0.3-0.1] Hz and constant 1 Hz heart rate*
 
 __*Increase Frequency Resolution in Transformed signal*__
 As we shown in Figure (TOP FIGURE WITH HUGE N VALUE) sometimes using a larger *N* parameter in Matlab’s fft can help us understand the frequency plot of our signal.
@@ -196,7 +197,14 @@ As we shown in Figure (TOP FIGURE WITH HUGE N VALUE) sometimes using a larger *N
 We were especially interested if this strategy would help us when the frequency content in a signal is changing. The simulated and chunked data was examined with and without filtering to see if it yielded better results. The filtering was done by band pass filter in which the amplitude of all frequencies that were not a possible heart rate (CITE THIS) or breath rate (CITE THIS) were divided by ten. 
 
 ![](figure 3sec normal) 
-_*Figure12 .1 *_
+
+<img src="images/sim_vary_breathrate_freq_3sec.png" width="400"/> 
+<img src="images/sim_vary_breathrate_freq_doubled_3sec.png" width="400"/> 
+<img src="images/sim_vary_breathrate_freq_doubled_3sec_filtered.png" width="400"/> 
+
+*Figure12 .1 Frequency Domain plots of 3s sub-sample ploted using (default N, doubled N, doubled N after filtering) *
+
+
 ![](figure 3sec double) 
 
 ![](figure 3sec double filtered) 
