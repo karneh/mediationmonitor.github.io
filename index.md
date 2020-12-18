@@ -184,7 +184,7 @@ __Sub-Sampling__
 
 Breaking a signal into smaller samples is a valid way to remove the presence of a changing frequency -- because there is less frequency change in a truncated sample [assuming constant variation of frequency]. Unfortunately, having smaller samples also comes at a price -- there is less data, and that will make it harder to pick up the frequencies present in the signal(due to the functionality of the FFT function).
 
-We experimented with breaking this signal into smaller sub samples. These samples were then transformed into the frequency domain. These samples for 3, 6 and 12 second samples are shown in   _FIGURE 1_ , _FIGURE2_ and _FIGURE3_ respectively.
+We experimented with breaking this signal into smaller sub samples. These samples were then transformed into the frequency domain. These samples for 3, 6 and 12 second samples are shown in **Figure 4.g** respectively.
 
 <figure>
   <div style="display:flex; justify-content:center;">
@@ -235,7 +235,8 @@ We were especially interested if this strategy would help us when the frequency 
 </figure>
 
 <br>
-_Figures 4.h- 4.j_ show how effective our methods are. The plots __should__ all show a large precense of frequencies between 0.3-0.1 Hz and a 1 Hz signal. FIGURE BOTTOM FIGURE shows how longer time samples help distinguish the presence of these frequencies. Surprisingly, using a larger N value (to increase the plot resolution) does not help or yield new information in the frequency domain plot. The same goes for the plot that is made from a filtered signal (the third subplot in **Figures 4.h- 4.j**).
+
+**Figures 4.h-4.j** show how effective our methods are. The plots *should* all show a large precense of frequencies between 0.3-0.1 Hz and a 1 Hz signal. FIGURE BOTTOM FIGURE shows how longer time samples help distinguish the presence of these frequencies. Surprisingly, using a larger N value (to increase the plot resolution) does not help or yield new information in the frequency domain plot. The same goes for the plot that is made from a filtered signal (the third subplot in **Figures 4.h- 4.j**).
 
 This changes our plan of analysis to only use the default FFT function and filter out signals outside of our ranges of interest.
 
