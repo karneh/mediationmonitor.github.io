@@ -41,7 +41,7 @@ The phone was oriented with the following axes:
 <details>
   <summary>Sample Rate</summary>
 
-Given the fact that heartbeat is about 0.66 - 1.33 Hz and breath rate is about 0.16 - 0.25 Hz, we wanted a sample rate greater than those ranges to make sure it could pick up both patterns. We started off with data sampled at 10 Hz and then transitioned to 50 Hz after discovering (through trial and error) that data sampled at 50 Hz gave us more data points to analyze.
+Given the fact that heartbeat is about 0.66 - 1.33 Hz and breath rate is about 0.16 - 0.25 Hz (from our own measurements of pulses and breaths during mediation), we wanted a sample rate greater than those ranges to make sure it could pick up both patterns. We started off with data sampled at 10 Hz and then transitioned to 50 Hz after discovering (through trial and error) that data sampled at 50 Hz gave us more data points to analyze.
 
 </details>
 
@@ -69,27 +69,26 @@ To observe and measure meditation with an accelerometer, we must have a base und
 <details>
   <summary>Heartbeat Motion</summary>
 
-Heartbeats are easily measured by one’s own fingers. We can sense the “pulse” of increased blood flow in our veins. The accelerometer seeks to do something extremely similar. If the accelerometer was positioned normal to the heartbeat (so that the movement due to heartbeat was in 1 axis) we would expect the phone to accelerate up and down due to the change of blood flow.
+Heartbeats are easily measured by one’s own fingers. We can sense the “pulse” of increased blood flow in our veins. Similarly we expect the accelerometer to register accelerations in all 3 axes due to a heartbeat. This is because a heartbeat cuases the chest to expand in multiple directions hence generating an acceleration in multiple axes. 
 
-One cycle, or one heartbeat, should correspond to one period of our acceleration normal to the heartbeat. From our research we know that the heart rate of individuals in meditation to be between 50-100 bpm[SOURCE NUM]. This means that we can expect to see this 50-100bpm (.8-1.6 Hz) signal present in our acceleration data.
 
-The above analysis is based on the fact that the phone is positioned normal to the observed motion. Our sensor choice does not gurantee this. For this reason, we expect to see accelerations matching these frequencies in all axes.
+One cycle, or one heartbeat, should correspond to one period ofa sinusoidal acceleration in multiple axes. From our research we know that the heart rate of individuals in meditation to be 40-80 BPM (.66-1.33 Hz) we expect to see a signal with matching frequenciest in our acceleration data.
+
+We also expect to see increased components of acceleration in all axes due to the fact that the phone is not oriented perfectly normal to this motion (ie we would expect some component of gravity in all axes and we would also expect a heartbeat to show up in multiple axes)
 
 </details>
 
 <details>
   <summary>Breathing Motion</summary>
 
-Breathing is arguably more complex motion than the heartbeat, one reason is since it can be controlled by the individual. Our experiment seeks to measure the rise and fall of the subject’s chest while breathing. This motion should also be cyclical in nature. 
+Our experiment seeks to measure the rise and fall of the subject’s chest while breathing. Breathing is a more variable motion than the heartbeat because it can be controlled by the individual. This motion should also be cyclical in nature, lending itself to a sinusoidal acceleration -- like the heartbeat.
 
-We can expect an acceleration while inhaling and corresponding acceleration when exhaling. This means that we should large amounts of the frequencies with the breathing rate (.1-.5 Hz)[SOURCE] Once again this motion should be primarily recorded in one axis. However, the phone will not be placed perfectly on the body so we can expect to see corresponding signals/frequencies in all axes.
+We expect to see frequencies within the breathing rate (.16-.25 Hz) in our acceleration signal. Once again this motion should be primarily recorded in the Z axis. However, the phone will not be placed perfectly on the body so we can expect to see corresponding signals/frequencies in all axes. We expect the magnitude of acceleration during a breath to be nuch larger than that of a heartbeat as the phone is moving much further in a given amount of time.
 
-The motion of breathing causes the phone to move much more than a heartbeat. This will cause the sensor to potentially move throughout measurement collection. This could introduce error into our data. 
-
-We expect a raw acceleration plot to look something like this:
+We expect a raw acceleration plot to look something like this (Y axis not to scale):
 
 <figure>
-  <figcpation>Generated wave with .95 Hz(heartbeat) and .2 Hz(breathrate) sine waves</figcaption>
+  <figcaption>Generated acceleration wave with .95 Hz(heartbeat) and .2 Hz(breathrate) sine waves</figcaption>
   <img src="images/sim_time.png"/>
   <figcaption>Figure 3: Theoretical Acceleration</figcaption>
 </figure>
@@ -98,66 +97,56 @@ We expect a raw acceleration plot to look something like this:
 
 ___
 
-## <a id="Analytical_Method"></a> Analytical Method
+## <a id="Signal Processing"></a> Signal Processing
 
-Before we began actually analyzing the data, some trimming of the data was necessary. In Figure 4, you can see that at the beginning and end of the accelerometer data has some peaks from when the screen is pressed to start data collection. Therefore, we made the decision to trim the very beginning and end of samples to remove these anomalies. 
+After collecting the data, we started off by plotting the raw acceleration to understand what the unprocessed signal looks like. We then trimmed the data to cut noise from the start and end of the data collection period. Then, we explored several methods with the Fast Fourier Transform to examine the frequency content of the signals for all axes. Finally, we decided to break the sample into smaller time samples, filtered out frequencies non-related to meditation and compared the changes in frequencies across the subsamples.
+
+<details>
+  <summary>Raw Data & Trimming</summary>
+Before we began analyzing the data, trimming of the data was necessary. Figure 4 shows the raw accelertation data from a single meditation session. The beginning and end of the accelerometer data has peaks from when the screen is pressed to start data collection. Therefore, we made the decision to trim the very beginning and end of samples to remove these anomalies. 
 
 <figure>
   <img src="images/rawdata.jpg"/> 
   <figcaption>Figure 4: Raw Acceleration</figcaption>
 </figure>
 
-We then split the data into smaller time chunks in order to examine how metrics like breathing rate and heart rate vary throughout the meditation session.
-
-AFter looking at the FFT of the control data, we decided to filter out the control data. The reasoning for this is that the amplitudes in the frequency range of interest (0.1 - 1.5 Hz) were pretty significant as shown in Figure 5. Our method of filtering involves subtracting the FFT of the control data from the FFT of the actual data. 
-
-<figure>
-  <img src="images/ControlDataFFT.jpg"/> 
-  <figcaption>Figure 5: Control Data FFT</figcaption>
-</figure>
-
-At this point, we decided to implement a band pass filter to decrease the amplitude of frequencies we are not interested in. To choose the frequency ranges we looked up data on breath rates and heart rates.
+</details>
 
 <details>
-  <summary>Method Validation</summary>
+  <summary>Exploration & Validation of Algorithm</summary>
   
-To validate our method we performed a first pass analysis on a constructed signal with the frequencies of interest.
-Below is a plot of the signal generated in the time domain. This signal has both a .95 Hz and 0.2 Hz signal in the dataset. These two frequencies represent a heart and breath rate respectively.
-
-<figure>
-  <img src="images/sim_time.png"/> 
-  <figcaption>Figure 12.j Time domain plot of simulated signal w/noise (.2 Hz and .95 Hz signals)</figcaption>
-</figure>
-
-This signal is then converted into the frequency showing using Matlab’s FFT (Fast Fourier Transform) function ()[INSERT LINK]. This indicates how much of a certain frequency is present in a sample. Below is the figure generated from the FFT function. This signal has been shifted into the frequency domain (Hz).
+#### Examining the Frequency Domain ####
+  
+We wanted to validate that using the FFT was a correct method for our application. We were specifically interested in identifying frequencies that fall between two discretized points in our frequency domain plot.
 
 <figure>
   <img src="images/sim_freq.png"/>
-  <figcaption>Figure 12.j Frequency domain plot of simulated signal shown in figure below</figcaption>
+  <figcaption>Figure XXX Frequency domain plot of simulated signal w/noise (.2 Hz and .95 Hz signals)</figcaption>
 </figure>
 
-This plot informs us of several things. We do indeed see the presence of the frequencies of interest. Interestingly, there is no maximum amplitude centered around the 0.95 Hz value. Instead it appears that there are sligh spikes at .9 and 1 Hz. This case shows the shortcoming of our process. In the case where a frequency is present in our signal but not aligned with the frequencies used in the fft function the “real” frequency can be masked.
+This plot informs us of several things. We do indeed see the presence of the frequencies of interest. Interestingly, there is no maximum amplitude centered around the 0.95 Hz value. Instead it appears that there are peaks at .9 and 1 Hz. This case shows the shortcoming of our process. For instance, if a frequency is present in our signal but not aligned with the frequencies used in the FFT, the true frequency can be masked.
 
-One idea we had was to remedy this problem by using the additional parameter that controls the size of the matrix used to calculate the fft of our signal (https://www.mathworks.com/help/matlab/ref/fft.html#f83-998360-n)[https://www.mathworks.com/help/matlab/ref/fft.html#f83-998360-n]. This parameter could generate more points between a given range in our plot and allow us to look at a more dense range of frequencies.
+One idea we had to remedy this problem was to use the additional parameter, N, in MATLAB's FFT function (https://www.mathworks.com/help/matlab/ref/fft.html#f83-998360-n)[https://www.mathworks.com/help/matlab/ref/fft.html#f83-998360-n). This parameter should yield a denser frequency domain plot.
 
 <figure>
   <div style="display:flex; justify-content:center;">
-    <img style="display:inline;" src="images/sim_freq.png"/>
-    <img style="display:inline;" src="images/sim_freq_double.png"/> 
+    <img style="width:300; display:inline;" src="images/sim_freq.png"/>
+    <img style="width:300; display:inline;" src="images/sim_freq_double.png"/> 
   </div>
   <figcaption>Figure 12.j Frequency Domain using fft(x, length(x)) and fft(x, 2*length(x)) respectively</figcaption>
 </figure>
 
-These graphics show that while this doesn’t create the ideal behavior(other noise in the signal seems to be increased), it does create spikes centered around the expected values at .2 and .95 Hz. Unfortunately, this yields other spikes in non-interesting frequencies. Adjusting the __N__ parameter is worth testing, however, from this data a simple weighted average of the regions of interest would yield the same peak.
+These figures show that while this doesn’t create the ideal behavior (other noise in the signal seems increased), it does create peaks centered around the expected values at .2 and .95 Hz. Unfortunately, this yields other peaks in non-pertinent frequencies. Adjusting the __N__ parameter is worth testing, though it may obfuscate our data.
 
-#### Understanding what to expect with varying frequencies
+#### Examining the Frequency Domain with Varying Frequencies ####
 
 __Data Preparation and Observation__
-In order to understand what our fft would do to an input signal with a varying frequency we simulated a signal that had a varying breath rate and constant heart rate.
+
+During meditation, we expect the breathing rate to change over time. As such, we wanted to understand how this changes the results obtained when doing a FFT of a signal with varying frequency content. We simulated a signal that had a varying breath rate (0.3 to 0.1 Hz) and constant heart rate (1 Hz).
 
 <figure>
   <img src="images/sim_vary_breathrate_time.png"/> 
-  <figcaption>Figure 3.5 Simulated 30s sample@50Hz, breath rate varies from 0.3-0.1 Hz, heart rate is a constant 1 Hz</figcaption>
+  <figcaption>Figure 3.5 Simulated 30s sample @ 50Hz, breath rate varies from 0.3-0.1 Hz, heart rate is a constant 1 Hz</figcaption>
 </figure>
 
 This signal is more representative of what we expect our incoming data to be. We also added noise to the signal shown in blue.
@@ -169,12 +158,13 @@ We are interested in the frequencies present in this signal. To examine this we 
   <figcaption>Figure 12.2 Frequency Domain plot of entire 30s sample</figcaption>
 </figure>
 
-The results shown in  *Figure 3.slkjfsdlkfj* highlight exactly what we were trying to avoid -- unclear peaks of the frequencies present in the signal. Our plan to avoid this behavior is to sample smaller time chunks of an entire sample. For example we would look at 30 second chunks of a 5 minute sample. In this simulated
+The results shown in  *Figure 3.slkjfsdlkfj* highlight exactly what we were trying to avoid -- unclear peaks of the frequencies present in the signal.
 
-#### Investigating Potential Solutions
-__*Sub-Sampling*__
+#### Investigating Solutions to Unclear 
 
-Breaking a signal into smaller samples is a valid way to remove the presence of a changing frequency -- because there is less frequency change in a truncated sample [assuming constant variation of frequency]. Unfortunately, having smaller samples also comes at a price -- here is less data, and that will make it harder to pick up the frequencies present in the signal(due to the functionality of the FFT function).
+__Sub-Sampling__
+
+Breaking a signal into smaller samples is a valid way to remove the presence of a changing frequency -- because there is less frequency change in a truncated sample [assuming constant variation of frequency]. Unfortunately, having smaller samples also comes at a price -- there is less data, and that will make it harder to pick up the frequencies present in the signal(due to the functionality of the FFT function).
 
 We experimented with breaking this signal into smaller sub samples. These samples were then transformed into the frequency domain. These samples for 3, 6 and 12 second samples are shown in   _FIGURE 1_ , _FIGURE2_ and _FIGURE3_ respectively.
 
@@ -187,11 +177,13 @@ We experimented with breaking this signal into smaller sub samples. These sample
   <figcaption>Figure 45345 FFT of 3, 6, and 12s sub-sample, respectively, with varying breathrate [0.3-0.1] Hz and 1 Hz heart rate</figcaption>
 </figure>
 
-__*Increase Frequency Resolution in Transformed signal*__
+Figure XXXXX shows that longer samples yield more detailed and accurate frequency domain plot. In the longest sample, we can see a clear peak near 1 Hz, whereas the shorter samples do not show this peak. This indicates that while splitting the data will allow us to see different frequencies over time, samples must long enough to result in a useful frequency domain plot.
 
-As we shown in Figure (TOP FIGURE WITH HUGE N VALUE) sometimes using a larger *N* parameter in Matlab’s fft can help us understand the frequency plot of our signal.
+__Increase Frequency Resolution in Transformed signal__
 
-We were especially interested if this strategy would help us when the frequency content in a signal is changing. The simulated and chunked data was examined with and without filtering to see if it yielded better results. The filtering was done by band pass filter in which the amplitude of all frequencies that were not a possible heart rate (CITE THIS) or breath rate (CITE THIS) were divided by ten. 
+As we shown in Figure (TOP FIGURE WITH HUGE N VALUE) sometimes using a larger *N* parameter in MATLAB’s FFT can help us understand the frequency domain plot of our signal in certain cases.
+
+We were especially interested if this strategy would help us when the frequency content in a signal is changing. The chunked simulated data was examined with and without filtering to see if it yielded better results. The filtering was done by band pass filter, where the amplitude of all frequencies that were not a potential heart rate or breath rate were divided by ten. 
 
 <figure>
   <div style="display:flex; justify-content:center;">
@@ -226,7 +218,9 @@ We were especially interested if this strategy would help us when the frequency 
 
 <br>
 
-Looking at Figures ABOVE ONES shows how effective our methods are. The plots should all show a large present of a frequency between 0.3-0.1 Hz and a 1 Hz signal.  Figure BOTTOM FIGURE shows how the longer time sample helps distinguish the presence of these frequencies. Interstingly, using a larger N value (to increase the plot resolution) does not help or yield new information. The same goes for the FFT plot that is made from a filtered signal (the third subplot in Figures HTOSE ABOVE FIGURES) This changes our plan of analysis to just look only use the default FFT function and filter out signals outside of our ranges of interest.
+The figures show how effective our methods are. The plots **should** all show a large precense of frequencies between 0.3-0.1 Hz and a 1 Hz signal. FIGURE BOTTOM FIGURE shows how longer time samples help distinguish the presence of these frequencies. Surprisingly, using a larger N value (to increase the plot resolution) does not help or yield new information in the frequency domain plot. The same goes for the plot that is made from a filtered signal (the third subplot in Figures HTOSE ABOVE FIGURES).
+
+This changes our plan of analysis to only use the default FFT function and filter out signals outside of our ranges of interest.
 
 </details>
 
