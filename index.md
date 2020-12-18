@@ -4,7 +4,7 @@ Our project goal is to be able to detect breathing and heartbeat patterns while 
 
 *We aim to help people new to meditation understand heartbeat and breathing patterns they experience through their meditation sessions*. We plan to use a smartphone accelerometer to obtain motion data while someone meditates. The smartphone will be placed on the person's chest and after we obtain the data we will process it to show breathing and heart rates. The final result will be a plot of the subject's breathing and heartbeat frequencies over time.
 
-[See our MATLAB scripts here.(https://github.com/teadetime/mediation_monitor)]
+[See our MATLAB scripts here.](https://github.com/teadetime/mediation_monitor)
 
 <details open>
   <summary>Background</summary>
@@ -144,7 +144,7 @@ We wanted to validate that using the FFT was a correct method for our applicatio
 
 **Figure 4.c** informs us of several things. We do indeed see the presence of the frequencies of interest. Interestingly, there is no maximum amplitude centered around the 0.95 Hz value. Instead it appears that there are peaks at .9 and 1 Hz. This case shows the shortcoming of our process. For instance, if a frequency is present in our signal but not aligned with the frequencies used in the FFT, the true frequency can be masked.
 
-One idea we had to remedy this problem was to use the additional parameter, N, in MATLAB's FFT function (https://www.mathworks.com/help/matlab/ref/fft.html#f83-998360-n)[https://www.mathworks.com/help/matlab/ref/fft.html#f83-998360-n). This parameter should yield a denser frequency domain plot.
+One idea we had to remedy this problem was to use the additional parameter, N, in MATLAB's FFT function [https://www.mathworks.com/help/matlab/ref/fft.html#f83-998360-n](https://www.mathworks.com/help/matlab/ref/fft.html#f83-998360-n). This parameter should yield a denser frequency domain plot.
 
 <figure>
   <div style="display:flex; justify-content:center;">
@@ -319,36 +319,24 @@ This project is far from perfect and there are a variety of things that could be
 ___
 
 ## <a id="Next_Steps"></a> Next steps
-Many of the above limitations/problems are caused by the use of an accelerometer to measure both heartbeat and breath rate. The other limitations tend to fall into the fact that both heart rate and breath rate can vary over time.
 
-<details>
-  <summary>Different Sensor</summary>
+Many of the above limitations and problems are caused by the use of an accelerometer to measure both heartbeat and breath rate. The other limitations focus on the fact that both heart rate and breath rate can vary over time. 
 
-Given this, it would be practical to measure both heart-rate and breath rate in another way. Our group recommends using a pulse-oximeter to measure heartbeat and a temperature sensor to measure exhales. Using this array of sensors would remove any use of acceleration data. This would make the signal processing much simpler. Both heart rate and breath rate could be detected in real time and a moving average could be used to estimate the current value.
+To address these limitations, we could use a different sensor to detect heart and breathing rate. Other sensors such as a microphone could allow us to more easily detect individual breaths, which would allow us to see greater resolution since we could see each breath rather than the breath rate over a time sample.
 
-</details>
-
-<details>
-  <summary>Size of FFT Matrix</summary>
-  
-If the project were to continue using an accelerometer as the primary sensor then the current processes used could be improved. One problem identified is the lack of discrete frequencies calculated in the ranges that were of interest. To obtain a better understanding of this range the size of the FFT matrix calculated by the fft function could be increased. This would yield a denser spread of frequencies within the desired ranges. 
+*Product Launch*
+ 
+Refactoring our code into a smartphone app is the final step. This app would be able to parse an entire meditation session into smaller time chunks and then allow the user to look back at portions of their session and examine how their breathing and heart rates fluctuated.
 
 </details>
 
-<details>
-  <summary>Product Creaction</summary>
-  
-In terms of product creation, this software is ready for a beta launch! Refactoring our code into a smartphone app is the final step. This app would be able to parse an entire meditation session into smaller time chunks and then allow the user to look back at portions of their session that were above or below their recommended breathing and heart rates.
-
-</details>
-___
 
 ## <a id="Sources"></a> Sources
 
-1. Laskowski, Edward. “Heart Rate: What’s Normal?” Mayo Clinic, 2 Oct. 2020, www.mayoclinic.org/healthy-lifestyle/fitness/expert-answers/heart-rate/faq-20057979.
+1. Laskowski, Edward. “Heart Rate: What’s Normal?” Mayo Clinic, 2 Oct. 2020, [www.mayoclinic.org/healthy-lifestyle/fitness/expert-answers/heart-rate/faq-20057979](www.mayoclinic.org/healthy-lifestyle/fitness/expert-answers/heart-rate/faq-20057979).
 
-2. “Mindful Breathing (Greater Good in Action).” Greater Good in Action, ggia.berkeley.edu/practice/mindful_breathing. Accessed 6 Dec. 2020.
+2. “Mindful Breathing (Greater Good in Action).” Greater Good in Action, [ggia.berkeley.edu/practice/mindful_breathing](ggia.berkeley.edu/practice/mindful_breathing). Accessed 6 Dec. 2020.
 
-3. Soni, Rahul, and Manivannan Muniyandi. “Breath Rate Variability: A Novel Measure to Study the Meditation Effects.” International Journal of Yoga, Medknow Publications & Media Pvt Ltd, Jan. 2019, www.ncbi.nlm.nih.gov/pmc/articles/PMC6329220/.
+3. Soni, Rahul, and Manivannan Muniyandi. “Breath Rate Variability: A Novel Measure to Study the Meditation Effects.” International Journal of Yoga, Medknow Publications & Media Pvt Ltd, Jan. 2019, [www.ncbi.nlm.nih.gov/pmc/articles/PMC6329220/](www.ncbi.nlm.nih.gov/pmc/articles/PMC6329220/).
 
-4. “Vital Signs (Body Temperature, Pulse Rate, Respiration Rate, Blood Pressure).” Johns Hopkins Medicine, www.hopkinsmedicine.org/health/conditions-and-diseases/vital-signs-body-temperature-pulse-rate-respiration-rate-blood-pressure. Accessed 6 Dec. 2020.
+4. “Vital Signs (Body Temperature, Pulse Rate, Respiration Rate, Blood Pressure).” Johns Hopkins Medicine, [www.hopkinsmedicine.org/health/conditions-and-diseases/vital-signs-body-temperature-pulse-rate-respiration-rate-blood-pressure](www.hopkinsmedicine.org/health/conditions-and-diseases/vital-signs-body-temperature-pulse-rate-respiration-rate-blood-pressure). Accessed 6 Dec. 2020.
