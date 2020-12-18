@@ -125,6 +125,22 @@ Looking at a magnified portion of the data, there are large periodic peaks that 
 <details>
   <summary>Exploration & Validation of Algorithm</summary>
   
+
+<details>
+  <summary>Final Algorithm</summary>
+
+After exploring different methods of smoothing and analyzing the data we decided on an algorithm that contains the following steps:
+
+Trim the front and end of the data to remove anomalies
+Break the data into smaller sub-samples to detect changes in breath rate and heart rate throughout the meditation session.
+FFT the data and compute frequencies using Fs and sample size (N)
+Used a band pass filter to decrease the amplitudes of frequencies in ranges not correlated to breath rate and heart rate. 
+Extract maximum peaks in the frequency domain that likely correlate with heart rate and breath rate
+Plot data and present to the user
+
+
+<details>
+
 #### Examining the Frequency Domain ####
   
 We wanted to validate that using the FFT was a correct method for our application. We were specifically interested in identifying frequencies that fall between two discretized points in our frequency domain plot.
@@ -238,31 +254,19 @@ ___
 
 ## <a id="Results"></a>Results
 
-After implementing the algorithm outlined above, we were able to plot and compare the frequences over the different subsamples of time. 
+After implementing the algorithm outlined above, we were able to plot and compare the frequences over the different subsamples of time.
 
 <figure>
   <img src="images/chunked_subplot.jpg"/> 
   <figcaption>Figure x: subplsot of FFTs a</figcaption>
 </figure>
 
-From those frequency domain plots, we isolated the peaks in the range for heartbeat frequencies and the range for breath rate frequencies in each subsample. 
+From those frequency domain plots, we isolated the peaks in the range for heartbeat frequencies and the range for breath rate frequencies in each subsample. These peaks were plotted together, as shown in the figure below, so the user can visually see how their heartbeat and breathing patters are changing throughout the meditation session. 
 
 <figure>
   <img src="images/overplot_results.jpg"/> 
   <figcaption>Figure x: subplsot of FFTs a</figcaption>
 </figure>
-
-
-<figure>
-  <img src="images/breathratetime.jpg"/> 
-  <figcaption> Figure x: breath shit </figcaption>
-</figure>
-
-<figure>
-  <img src="images/heartratetime.jpg"/> 
-  <figcaption>Figure x: heart shit </figcaption>
-</figure>
-
 
 ___
 
