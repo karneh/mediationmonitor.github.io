@@ -140,19 +140,19 @@ We wanted to validate that using the FFT was a correct method for our applicatio
   <figcaption> <b> Figure 4.c </b> : Frequency domain plot of simulated signal w/noise (.2 Hz and .95 Hz signals)</figcaption>
 </figure>
 
-This plot informs us of several things. We do indeed see the presence of the frequencies of interest. Interestingly, there is no maximum amplitude centered around the 0.95 Hz value. Instead it appears that there are peaks at .9 and 1 Hz. This case shows the shortcoming of our process. For instance, if a frequency is present in our signal but not aligned with the frequencies used in the FFT, the true frequency can be masked.
+**Figure 4.c** informs us of several things. We do indeed see the presence of the frequencies of interest. Interestingly, there is no maximum amplitude centered around the 0.95 Hz value. Instead it appears that there are peaks at .9 and 1 Hz. This case shows the shortcoming of our process. For instance, if a frequency is present in our signal but not aligned with the frequencies used in the FFT, the true frequency can be masked.
 
 One idea we had to remedy this problem was to use the additional parameter, N, in MATLAB's FFT function (https://www.mathworks.com/help/matlab/ref/fft.html#f83-998360-n)[https://www.mathworks.com/help/matlab/ref/fft.html#f83-998360-n). This parameter should yield a denser frequency domain plot.
 
 <figure>
   <div style="display:flex; justify-content:center;">
-    <img style="width:300; display:inline;" src="images/sim_freq.png"/>
-    <img style="width:300; display:inline;" src="images/sim_freq_double.png"/> 
+    <img style="width:300px; display:inline;" src="images/sim_freq.png"/>
+    <img style="width:300px; display:inline;" src="images/sim_freq_double.png"/> 
   </div>
-  <figcaption>Figure 12.j Frequency Domain using fft(x, length(x)) and fft(x, 2*length(x)) respectively</figcaption>
+  <figcaption> <b> Figure 4.d </b> Frequency Domain using fft(x, length(x)) and fft(x, 2*length(x)) respectively</figcaption>
 </figure>
 
-These figures show that while this doesn’t create the ideal behavior (other noise in the signal seems increased), it does create peaks centered around the expected values at .2 and .95 Hz. Unfortunately, this yields other peaks in non-pertinent frequencies. Adjusting the __N__ parameter is worth testing, though it may obfuscate our data.
+**Figure 4.d** show that while this doesn’t create the ideal behavior (other noise in the signal seems increased), it does create peaks centered around the expected values at .2 and .95 Hz. Unfortunately, this yields other peaks in non-pertinent frequencies. Adjusting the __N__ parameter is worth testing, though it may obfuscate our data.
 
 #### Examining the Frequency Domain with Varying Frequencies ####
 
@@ -162,19 +162,19 @@ During meditation, we expect the breathing rate to change over time. As such, we
 
 <figure>
   <img src="images/sim_vary_breathrate_time.png"/> 
-  <figcaption>Figure 3.5 Simulated 30s sample @ 50Hz, breath rate varies from 0.3-0.1 Hz, heart rate is a constant 1 Hz</figcaption>
+  <figcaption><b>Figure 4.e</b> Simulated 30s sample @ 50Hz, breath rate varies from 0.3-0.1 Hz, heart rate is a constant 1 Hz</figcaption>
 </figure>
 
-This signal is more representative of what we expect our incoming data to be. We also added noise to the signal shown in blue.
+This signal **Figure 4.e** is more representative of what we expect our incoming data to be. We also added noise to the signal shown in blue.
 
-We are interested in the frequencies present in this signal. To examine this we take a fft of the entire 30 second chunk. This yields us *Figure 3.1FSDKFLJ* which shows a clear spike at 1 Hz for the heartbeat and an increased amplitude in the range [0.1 - 0.3] Hz.
+We are interested in the frequencies present in this signal. To examine this we take a fft of the entire 30 second chunk. This yields us **Figure 4.f** which shows a clear spike at 1 Hz for the heartbeat and an increased amplitude in the range [0.1 - 0.3] Hz.
 
 <figure>
   <img src="images/sim_vary_breathrate_freq.png"/> 
-  <figcaption>Figure 12.2 Frequency Domain plot of entire 30s sample</figcaption>
+  <figcaption> <b> Figure 4.f </b> Frequency Domain plot of entire 30s sample</figcaption>
 </figure>
 
-The results shown in  *Figure 3.slkjfsdlkfj* highlight exactly what we were trying to avoid -- unclear peaks of the frequencies present in the signal.
+The results shown in  **Figure 4.f** highlight exactly what we were trying to avoid -- unclear peaks of the frequencies present in the signal.
 
 #### Investigating Solutions to Unclear 
 
@@ -186,55 +186,54 @@ We experimented with breaking this signal into smaller sub samples. These sample
 
 <figure>
   <div style="display:flex; justify-content:center;">
-    <img src="images/sim_vary_breathrate_freq_3sec.png" style="width:260; display:inline;"/> 
-    <img src="images/sim_vary_breathrate_freq_6sec.png" style="width:260; display:inline;"/> 
-    <img src="images/sim_vary_breathrate_freq_12sec.png" style="width:260; display:inline;"/> 
+    <img src="images/sim_vary_breathrate_freq_3sec.png" style="width:260px; display:inline;"/> 
+    <img src="images/sim_vary_breathrate_freq_6sec.png" style="width:260px; display:inline;"/> 
+    <img src="images/sim_vary_breathrate_freq_12sec.png" style="width:260px; display:inline;"/> 
   </div>
-  <figcaption>Figure 45345 FFT of 3, 6, and 12s sub-sample, respectively, with varying breathrate [0.3-0.1] Hz and 1 Hz heart rate</figcaption>
+  <figcaption> <b> Figure 4.g </b> FFT of 3, 6, and 12s sub-sample, respectively, with varying breathrate [0.3-0.1] Hz and 1 Hz heart rate</figcaption>
 </figure>
 
-Figure XXXXX shows that longer samples yield more detailed and accurate frequency domain plot. In the longest sample, we can see a clear peak near 1 Hz, whereas the shorter samples do not show this peak. This indicates that while splitting the data will allow us to see different frequencies over time, samples must long enough to result in a useful frequency domain plot.
+**Figure 4.g** shows that longer samples yield more detailed and accurate frequency domain plot. In the longest sample, we can see a clear peak near 1 Hz, whereas the shorter samples do not show this peak. This indicates that while splitting the data will allow us to see different frequencies over time, samples must long enough to result in a useful frequency domain plot.
 
 __Increase Frequency Resolution in Transformed signal__
 
-As we shown in Figure (TOP FIGURE WITH HUGE N VALUE) sometimes using a larger *N* parameter in MATLAB’s FFT can help us understand the frequency domain plot of our signal in certain cases.
+As we shown in **Figure 4.d** sometimes using a larger *N* parameter in MATLAB’s FFT can help us understand the frequency domain plot of our signal in certain cases.
 
 We were especially interested if this strategy would help us when the frequency content in a signal is changing. The chunked simulated data was examined with and without filtering to see if it yielded better results. The filtering was done by band pass filter, where the amplitude of all frequencies that were not a potential heart rate or breath rate were divided by ten. 
 
 <figure>
   <div style="display:flex; justify-content:center;">
-    <img src="images/sim_vary_breathrate_freq_3sec.png" style="width:260; display:inline;"/> 
-    <img src="images/sim_vary_breathrate_freq_doubled_3sec.png" style="width:260; display:inline;"/> 
-    <img src="images/sim_vary_breathrate_freq_doubled_3sec_filtered.png" style="width:260; display:inline;"/> 
+    <img src="images/sim_vary_breathrate_freq_3sec.png" style="width:260px; display:inline;"/> 
+    <img src="images/sim_vary_breathrate_freq_doubled_3sec.png" style="width:260px; display:inline;"/> 
+    <img src="images/sim_vary_breathrate_freq_doubled_3sec_filtered.png" style="width:260px; display:inline;"/> 
   </div>
-  <figcaption>Figure 12.j Frequency Domain of 3s sub-sample ploted (default N, doubled N, doubled N after filtering)</figcaption>
+  <figcaption> <b> Figure 4.h </b> Frequency Domain of 3s sub-sample ploted (default N, doubled N, doubled N after filtering)</figcaption>
 </figure>
 
 <br>
 
 <figure>
   <div style="display:flex; justify-content:center;">
-    <img src="images/sim_vary_breathrate_freq_6sec.png" style="width:260; display:inline;"/>
-    <img src="images/sim_vary_breathrate_freq_doubled_6sec.png" style="width:260; display:inline;"/> 
-    <img src="images/sim_vary_breathrate_freq_doubled_6sec_filtered.png" style="width:260; display:inline;"/> 
+    <img src="images/sim_vary_breathrate_freq_6sec.png" style="width:260px; display:inline;"/>
+    <img src="images/sim_vary_breathrate_freq_doubled_6sec.png" style="width:260px; display:inline;"/> 
+    <img src="images/sim_vary_breathrate_freq_doubled_6sec_filtered.png" style="width:260px; display:inline;"/> 
   </div>
-  <figcaption>Figure 12.j Frequency Domain of 6s sub-sample using (default N, doubled N, doubled N after filtering)</figcaption>
+  <figcaption> <b> Figure 4.i </b> Frequency Domain of 6s sub-sample using (default N, doubled N, doubled N after filtering)</figcaption>
 </figure>
 
 <br>
 
 <figure>
   <div style="display:flex; justify-content:center;">
-    <img src="images/sim_vary_breathrate_freq_12sec.png" style="width:260; display:inline;"/> 
-    <img src="images/sim_vary_breathrate_freq_doubled_12sec.png" style="width:260; display:inline;"/> 
-    <img src="images/sim_vary_breathrate_freq_doubled_12sec_filtered.png" style="width:260; display:inline;"/> 
+    <img src="images/sim_vary_breathrate_freq_12sec.png" style="width:260px; display:inline;"/> 
+    <img src="images/sim_vary_breathrate_freq_doubled_12sec.png" style="width:260px; display:inline;"/> 
+    <img src="images/sim_vary_breathrate_freq_doubled_12sec_filtered.png" style="width:260px; display:inline;"/> 
   </div>
-  <figcaption>Figure 12.j Frequency Domain plots of 12s sub-sample using (default N, doubled N, doubled N after filtering)</figcaption>
+  <figcaption> <b> Figure 4.j </b> Frequency Domain plots of 12s sub-sample using (default N, doubled N, doubled N after filtering)</figcaption>
 </figure>
 
 <br>
-
-The figures show how effective our methods are. The plots **should** all show a large precense of frequencies between 0.3-0.1 Hz and a 1 Hz signal. FIGURE BOTTOM FIGURE shows how longer time samples help distinguish the presence of these frequencies. Surprisingly, using a larger N value (to increase the plot resolution) does not help or yield new information in the frequency domain plot. The same goes for the plot that is made from a filtered signal (the third subplot in Figures HTOSE ABOVE FIGURES).
+**Figures 4.h- 4.j** show how effective our methods are. The plots **should** all show a large precense of frequencies between 0.3-0.1 Hz and a 1 Hz signal. FIGURE BOTTOM FIGURE shows how longer time samples help distinguish the presence of these frequencies. Surprisingly, using a larger N value (to increase the plot resolution) does not help or yield new information in the frequency domain plot. The same goes for the plot that is made from a filtered signal (the third subplot in **Figures 4.h- 4.j**).
 
 This changes our plan of analysis to only use the default FFT function and filter out signals outside of our ranges of interest.
 
@@ -245,12 +244,12 @@ This changes our plan of analysis to only use the default FFT function and filte
 
 After exploring different methods of smoothing and analyzing the data we decided on an algorithm that contains the following steps:
 
-Trim the front and end of the data to remove anomalies
-Break the data into smaller sub-samples to detect changes in breath rate and heart rate throughout the meditation session.
-FFT the data and compute frequencies using Fs and sample size (N)
-Used a band pass filter to decrease the amplitudes of frequencies in ranges not correlated to breath rate and heart rate. 
-Extract maximum peaks in the frequency domain that likely correlate with heart rate and breath rate
-Plot data and present to the user
+1. Trim the front and end of the data to remove anomalies
+2. Break the data into smaller sub-samples to detect changes in breath rate and heart rate throughout the 3. meditation session.
+4. FFT the data and compute frequencies using Fs and sample size (N)
+5. Used a band pass filter to decrease the amplitudes of frequencies in ranges not correlated to breath rate and heart rate. 
+6. Extract maximum peaks in the frequency domain that likely correlate with heart rate and breath rate
+7. Plot data and present to the user
 
 </details>
 
@@ -263,14 +262,14 @@ After implementing the algorithm outlined above, we were able to plot and compar
 
 <figure>
   <img src="images/chunked_subplot.jpg"/> 
-  <figcaption>Figure x: subplsot of FFTs a</figcaption>
+  <figcaption> <b> Figure 5.a</b> : Subplot of filtered FFT of sub-samples</figcaption>
 </figure>
 
 From those frequency domain plots, we isolated the peaks in the range for heartbeat frequencies and the range for breath rate frequencies in each subsample. These peaks were plotted together, as shown in the figure below, so the user can visually see how their heartbeat and breathing patters are changing throughout the meditation session. 
 
 <figure>
   <img src="images/overplot_results.jpg"/> 
-  <figcaption>Figure x: subplsot of FFTs a</figcaption>
+  <figcaption><b> Figure 5.b </b> : Breath and heart rate change over time a</figcaption>
 </figure>
 
 ___
