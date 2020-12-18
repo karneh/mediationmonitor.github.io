@@ -246,6 +246,7 @@ Used a band pass filter to decrease the amplitudes of frequencies in ranges not 
 Extract maximum peaks in the frequency domain that likely correlate with heart rate and breath rate
 Plot data and present to the user
 
+</details>
 
 
 ___
