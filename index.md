@@ -204,7 +204,7 @@ We were especially interested if this strategy would help us when the frequency 
 <img src="images/sim_vary_breathrate_freq_doubled_3sec.png" width="260"/> 
 <img src="images/sim_vary_breathrate_freq_doubled_3sec_filtered.png" width="260"/> 
 
-*Figure12 .1 Frequency Domain plots of 3s sub-sample ploted using (default N, doubled N, doubled N after filtering) *
+_Figure12 .1 Frequency Domain plots of 3s sub-sample ploted using (default N, doubled N, doubled N after filtering)_
 
 <img src="images/sim_vary_breathrate_freq_6sec.png" width="260"/> 
 <img src="images/sim_vary_breathrate_freq_doubled_6sec.png" width="260"/> 
