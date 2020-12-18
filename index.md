@@ -50,7 +50,7 @@ Given the fact that heartbeat is about 0.66 - 1.33 Hz and breath rate is about 0
 <details>
   <summary>Set Up</summary>
   
-We chose to position the accelerometer directly overtop the heart *Figure 2.a* in hopes of being able to capture the heartbeat (the accelerations from the heartbeat will be of much smaller magnitude than breathing). This placement will allow the monitoring of breath and heart rate and will minimize other unwanted sensor movements like someone flexing their abs or moving their neck. This position will also record near-zero angular velocities as almost all of the acceleration is normal to the phone.
+We chose to position the accelerometer directly overtop the heart *Figure 2.a* in hopes of being able to capture the heartbeat (the accelerations from the heartbeat will be of a smaller magnitude than breathing). This placement will allow the monitoring of breath and heart rate and will minimize other unwanted sensor movements like someone flexing their abs or moving their neck. This position will also record near-zero angular velocities as almost all of the acceleration is normal to the phone.
 
 <figure>
   <div style="display:flex; justify-content:center;">
@@ -88,7 +88,7 @@ We also expect to see increased components of acceleration in all axes due to th
 
 Our experiment seeks to measure the rise and fall of the subject’s chest while breathing. Breathing is a more variable motion than the heartbeat because it can be controlled by the individual. This motion should also be cyclical in nature, lending itself to a sinusoidal acceleration -- like the heartbeat.
 
-We expect to see frequencies within the breathing rate (.16-.25 Hz) in our acceleration signal. Once again this motion should be primarily recorded in the Z axis. However, the phone will not be placed perfectly on the body so we can expect to see corresponding signals/frequencies in all axes. We expect the magnitude of acceleration during a breath to be nuch larger than that of a heartbeat as the phone is moving much further in a given amount of time.
+We expect to see frequencies within the breathing rate (.16-.25 Hz) in our acceleration signal. Once again this motion should be primarily recorded in the Z axis. However, the phone will not be placed perfectly on the body so we can expect to see corresponding signals/frequencies in all axes. We expect the magnitude of acceleration during a breath to be nuch larger than that of a heartbeat as the phone is moving further in a given amount of time.
 
 We expect a raw acceleration plot to look something like this (Y axis not to scale):
 
