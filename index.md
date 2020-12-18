@@ -4,6 +4,8 @@ Our project goal is to be able to detect breathing and heartbeat patterns while 
 
 *We aim to help people new to meditation understand heartbeat and breathing patterns they experience through their meditation sessions*. We plan to use a smartphone accelerometer to obtain motion data while someone meditates. The smartphone will be placed on the person's chest and after we obtain the data we will process it to show breathing and heart rates. The final result will be a plot of the subject's breathing and heartbeat frequencies over time.
 
+[See our MATLAB scripts here.(https://github.com/teadetime/mediation_monitor)]
+
 <details open>
   <summary>Background</summary>
 
