@@ -34,7 +34,7 @@ We chose to use a Pixel phone's accelerometer as our sensor. This selection was 
 The phone was oriented with the following axes:
 
 <figure>
-  <img src="images/phone_orien.png" style="width:250;"/>
+  <img src="images/phone_orien.png" style="width:250px;"/>
   <figcaption><b>Figure 1.a </b>: Sensor Orientation</figcaption>
 </figure>
 
@@ -55,7 +55,7 @@ We chose to position the accelerometer directly overtop the heart *Figure 2.a* i
 <figure>
   <div style="display:flex; justify-content:center;">
     <img src="images/nathan_side.jpg" style="width:300px; display:inline"/>
-    <img src="images/nathan_top.jpg" style="height:225px; display:inline"/>
+    <img src="images/nathan_top.jpg" style="height:245px; width:180px; display:inline"/>
   </div>
   <figcaption><b>Figure 2.a </b> : Experimental Set Up</figcaption>
 </figure>  
