@@ -245,7 +245,7 @@ After implementing the algorithm outlined above, we were able to plot and compar
 From those frequency domain plots, we isolated the peaks in the range for heartbeat frequencies and the range for breath rate frequencies in each subsample. 
 
 <figure>
-  <img src="overplot_results.jpg"/> 
+  <img src="images/overplot_results.jpg"/> 
   <figcaption>Figure x: subplsot of FFTs a</figcaption>
 </figure>
 
