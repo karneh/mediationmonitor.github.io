@@ -33,7 +33,7 @@ The phone was oriented with the following axes:
 
 <figure>
   <figcaption>Figure 1: Sensor Orientation</figcaption>
-  <img src="images/phone_orien.png" width="250"/>
+  <img src="images/phone_orien.png" style="width:250;"/>
 </figure>
 
 </details>
@@ -43,7 +43,10 @@ The phone was oriented with the following axes:
 
 <figure>
   <figcaption>Figure 2: Experimental Set Up</figcaption>
-  <img src="images/nathan_side.jpg" width="300"/> <img src="images/nathan_top.jpg" height="225"/> 
+  <div style="display:flex; justify-content:center;">
+    <img src="images/nathan_side.jpg" style="width:300; display:inline"/>
+    <img src="images/nathan_top.jpg" style="height:225; display:inline"/> 
+  </div>
 </figure>  
 
 To collect data, we simply placed our sensor (the phone) on the chest of the person whose data is being collected. We found that the chest was the optimal placement compared to other places on the body, since it was where our sensor could register heartbeat and breathing.
@@ -146,8 +149,8 @@ One idea we had was to remedy this problem by using the additional parameter tha
 <figure>
   <figcaption>Figure 12.j Frequency Domain using fft(x, length(x)) and fft(x, 2*length(x)) respectively</figcaption>
   <div style="display:flex; justify-content:center;">
-    <img style="display:none;" src="images/sim_freq.png"/>
-    <img style="display:none;" src="images/sim_freq_double.png"/> 
+    <img style="display:inline;" src="images/sim_freq.png"/>
+    <img style="display:inline;" src="images/sim_freq_double.png"/> 
   </div>
 </figure>
 
