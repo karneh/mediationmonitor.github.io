@@ -175,51 +175,48 @@ The results shown in  *Figure 3.slkjfsdlkfj* highlight exactly what we were tryi
 
 #### Investigating Potential Solutions
 __*Sub-Sampling*__
+
 Breaking a signal into smaller samples is a valid way to remove the presence of a changing frequency -- because there is less frequency change in a truncated sample [assuming constant variation of frequency]. Unfortunately, having smaller samples also comes at a price -- here is less data, and that will make it harder to pick up the frequencies present in the signal(due to the functionality of the FFT function).
 
 We experimented with breaking this signal into smaller sub samples. These samples were then transformed into the frequency domain. These samples for 3, 6 and 12 second samples are shown in   _FIGURE 1_ , _FIGURE2_ and _FIGURE3_ respectively.
 
-<img src="images/sim_vary_breathrate_freq_3sec.png" width="260"/> 
+<img src="images/sim_vary_breathrate_freq_3sec.png" width="400"/> 
 
-*Figure 45345 FFT of 3 second sub-sample with varying breathrate [0.3-0.1] Hz and constant 1 Hz heart rate*
+*Figure 45345 FFT of 3 second sub-sample with varying breathrate [0.3-0.1] Hz and constant 1 Hz heart rate* <br>
 
-<img src="images/sim_vary_breathrate_freq_6sec.png" width="260"/> 
+<img src="images/sim_vary_breathrate_freq_6sec.png" width="400"/> 
 
-*Figure 45345 FFT of 6 second sub-sample with varying breathrate [0.3-0.1] Hz and constant 1 Hz heart rate*
+*Figure 45345 FFT of 6 second sub-sample with varying breathrate [0.3-0.1] Hz and constant 1 Hz heart rate*<br>
 
-<img src="images/sim_vary_breathrate_freq_12sec.png" width="260"/> 
+<img src="images/sim_vary_breathrate_freq_12sec.png" width="400"/> 
 
-*Figure 45345 FFT of 12 second sub-sample with varying breathrate [0.3-0.1] Hz and constant 1 Hz heart rate*
+*Figure 45345 FFT of 12 second sub-sample with varying breathrate [0.3-0.1] Hz and constant 1 Hz heart rate*<br>
 
 __*Increase Frequency Resolution in Transformed signal*__
+
 As we shown in Figure (TOP FIGURE WITH HUGE N VALUE) sometimes using a larger *N* parameter in Matlab’s fft can help us understand the frequency plot of our signal.
 
 We were especially interested if this strategy would help us when the frequency content in a signal is changing. The simulated and chunked data was examined with and without filtering to see if it yielded better results. The filtering was done by band pass filter in which the amplitude of all frequencies that were not a possible heart rate (CITE THIS) or breath rate (CITE THIS) were divided by ten. 
 
 ![](figure 3sec normal) 
 
-<img src="images/sim_vary_breathrate_freq_3sec.png" width="400"/> 
-<img src="images/sim_vary_breathrate_freq_doubled_3sec.png" width="400"/> 
-<img src="images/sim_vary_breathrate_freq_doubled_3sec_filtered.png" width="400"/> 
+<img src="images/sim_vary_breathrate_freq_3sec.png" width="260"/> 
+<img src="images/sim_vary_breathrate_freq_doubled_3sec.png" width="260"/> 
+<img src="images/sim_vary_breathrate_freq_doubled_3sec_filtered.png" width="260"/> 
 
 *Figure12 .1 Frequency Domain plots of 3s sub-sample ploted using (default N, doubled N, doubled N after filtering) *
 
+<img src="images/sim_vary_breathrate_freq_6sec.png" width="260"/> 
+<img src="images/sim_vary_breathrate_freq_doubled_6sec.png" width="260"/> 
+<img src="images/sim_vary_breathrate_freq_doubled_6sec_filtered.png" width="260"/> 
 
-![](figure 3sec double) 
+*Figure12 .1 Frequency Domain plots of 6s sub-sample ploted using (default N, doubled N, doubled N after filtering) *
 
-![](figure 3sec double filtered) 
+<img src="images/sim_vary_breathrate_freq_12sec.png" width="260"/> 
+<img src="images/sim_vary_breathrate_freq_doubled_12sec.png" width="260"/> 
+<img src="images/sim_vary_breathrate_freq_doubled_12sec_filtered.png" width="260"/> 
 
-![](figure 6sec normal) 
-
-![](figure 6sec doubled) 
-
-![](figure 6sec doubled filtered) 
-
-![](figure 12sec normal) 
-
-![](figure 12sec doubled)
-
-![](figure 12sec doubled filtered)  
+*Figure12 .1 Frequency Domain plots of 12s sub-sample ploted using (default N, doubled N, doubled N after filtering) *
 
 
 </details>
