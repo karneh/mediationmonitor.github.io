@@ -33,7 +33,7 @@ The phone was oriented with the following axes:
 
 <figure>
   <img src="images/phone_orien.png" style="width:250;"/>
-  <figcaption><b>Figure 1.a</b>: Sensor Orientation</figcaption>
+  <figcaption><b>Figure 1.a </b>: Sensor Orientation</figcaption>
 </figure>
 
 </details>
@@ -55,7 +55,7 @@ We chose to position the accelerometer directly overtop the heart *Figure 2.a* i
     <img src="images/nathan_side.jpg" style="width:300px; display:inline"/>
     <img src="images/nathan_top.jpg" style="height:225px; display:inline"/>
   </div>
-  <figcaption>Figure 2.: Experimental Set Up</figcaption>
+  <figcaption><b>Figure 2.a </b> : Experimental Set Up</figcaption>
 </figure>  
 
 To collect data, we placed our sensor (the phone) on the chest of the person whose data is being collected. We found that the chest was the optimal placement compared to other places on the body, since it was where our sensor could register heartbeat and breathing. 
@@ -93,7 +93,13 @@ We expect a raw acceleration plot to look something like this (Y axis not to sca
 <figure>
   <img src="images/sim_time.png"/>
   <figcaption></figcaption>
-  <figcaption> __Figure 3.a__: Generated acceleration wave with .95 Hz(heartbeat) and .2 Hz(breathrate) sine waves</figcaption>
+  <figcaption> <b>Figure 3.a </b>: Generated acceleration wave with .95 Hz(heartbeat) and .2 Hz(breathrate) sine waves</figcaption>
+</figure>
+
+<figure>
+  <img src="images/expected_accel.png"/>
+  <figcaption></figcaption>
+  <figcaption> <b>Figure 3.b </b>: Theoretical relationship between position, velocity, and acceleration for the Z axis </figcaption>
 </figure>
 
 </details>
@@ -110,14 +116,14 @@ Before we began analyzing the data, trimming of the data was necessary. Figure 4
 
 <figure>
   <img src="images/rawdata.jpg"/> 
-  <figcaption>Figure 4: Raw Acceleration</figcaption>
+  <figcaption> <b>Figure 4.a </b> : Raw Acceleration</figcaption>
 </figure>
 
 Looking at a magnified portion of the data, there are large periodic peaks that seem to be correlated with a heart rate. Through extracting the x values, the frequency of those spiked would be approximately 1.38 Hz or 83bpm which is a reasonable value for a heartbeat.
 
 <figure>
   <img src="images/zoomed_raw_data.jpg"/> 
-  <figcaption>Figure 5: Rafafaef change nae later </figcaption>
+  <figcaption> <b> Figure 4.b </b> : Rafafaef change nae later </figcaption>
 </figure>
 
 </details>
@@ -131,7 +137,7 @@ We wanted to validate that using the FFT was a correct method for our applicatio
 
 <figure>
   <img src="images/sim_freq.png"/>
-  <figcaption>Figure XXX Frequency domain plot of simulated signal w/noise (.2 Hz and .95 Hz signals)</figcaption>
+  <figcaption> <b> Figure 4.c </b> : Frequency domain plot of simulated signal w/noise (.2 Hz and .95 Hz signals)</figcaption>
 </figure>
 
 This plot informs us of several things. We do indeed see the presence of the frequencies of interest. Interestingly, there is no maximum amplitude centered around the 0.95 Hz value. Instead it appears that there are peaks at .9 and 1 Hz. This case shows the shortcoming of our process. For instance, if a frequency is present in our signal but not aligned with the frequencies used in the FFT, the true frequency can be masked.
