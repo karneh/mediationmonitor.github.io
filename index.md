@@ -22,7 +22,7 @@ ___
 
 ## <a id="Data_Collection"></a> Data Collection Method
 
-We collected various one minute and five minute samples of someone lying down and meditatin as well as corrresponding control samples of the phone lying in the same orientation and location (but not on a person). 
+We collected various one minute and five minute samples of someone lying down and meditation as well as corrresponding control samples of the phone lying in the same orientation and location (but not on a person).
 
 <details>
   <summary>Sensor Choice</summary>
@@ -47,34 +47,37 @@ Given the fact that heartbeat is about 0.66 - 1.33 Hz and breath rate is about 0
 
 <details>
   <summary>Set Up</summary>
-We chose to position the accelerometer directly overtop the heart in hopes of being able to capture the heartbeat (the accelerations from the heartbeat will be of much smaller magnitude than breathing). This placement will allow the monitoring of breath  and hear rate and will minimize other unwanted sensor movements like someone flexing their abs or moving their neck. This position will also record near-zero angular velocities as almost all of the acceleration is normal to the phone.
+  
+We chose to position the accelerometer directly overtop the heart in hopes of being able to capture the heartbeat (the accelerations from the heartbeat will be of much smaller magnitude than breathing). This placement will allow the monitoring of breath and heart rate and will minimize other unwanted sensor movements like someone flexing their abs or moving their neck. This position will also record near-zero angular velocities as almost all of the acceleration is normal to the phone.
 
 <figure>
   <div style="display:flex; justify-content:center;">
-    <img src="images/nathan_side.jpg" style="width:300; height:auto; display:inline"/>
-    <img src="images/nathan_top.jpg" style="height:225; width:auto; display:inline"/> 
+    <img src="images/nathan_side.jpg" style="width:300px; display:inline"/>
+    <img src="images/nathan_top.jpg" style="height:225px; display:inline"/>
   </div>
   <figcaption>Figure 2: Experimental Set Up</figcaption>
 </figure>  
 
-To collect data, we simply placed our sensor (the phone) on the chest of the person whose data is being collected. We found that the chest was the optimal placement compared to other places on the body, since it was where our sensor could register heartbeat and breathing. We recorded more than 5 datasets containing more than 5 minutes of meditation. We also recorded control datasets where the phone was simply sitting in the smae orientation as the other datasets. These datasets will be used to remove error accelerations present in our environment.
+To collect data, we placed our sensor (the phone) on the chest of the person whose data is being collected. We found that the chest was the optimal placement compared to other places on the body, since it was where our sensor could register heartbeat and breathing. 
+
+We recorded more than 5 datasets containing more than 5 minutes of meditation. 
 
 </details>
 
 ___
 
 ## <a id="Motion_Model"></a> Motion Model
+
 To observe and measure meditation with an accelerometer, we must have a base understanding of the various motions occurring. In our experiment we are interested in two motions: breathing and heartbeats. 
 
 <details>
   <summary>Heartbeat Motion</summary>
 
-Heartbeats are easily measured by one’s own fingers. We can sense the “pulse” of increased blood flow in our veins. Similarly we expect the accelerometer to register accelerations in all 3 axes due to a heartbeat. This is because a heartbeat cuases the chest to expand in multiple directions hence generating an acceleration in multiple axes. 
+Heartbeats are easily measured by one’s own fingers. We can sense the “pulse” of increased blood flow in our veins. Similarly we expect the accelerometer to register accelerations in all 3 axes due to a heartbeat. This is because a heartbeat causes the chest to lightly expand in all directions, hence generating an acceleration in multiple axes. 
 
+One cycle, or one heartbeat, should correspond to one period of a sinusoidal acceleration in multiple axes. From our research, we know that the heart rate of individuals in meditation to be 40-80 BPM (.66-1.33 Hz). We expect to see a signal with matching frequenciest in our acceleration data.
 
-One cycle, or one heartbeat, should correspond to one period ofa sinusoidal acceleration in multiple axes. From our research we know that the heart rate of individuals in meditation to be 40-80 BPM (.66-1.33 Hz) we expect to see a signal with matching frequenciest in our acceleration data.
-
-We also expect to see increased components of acceleration in all axes due to the fact that the phone is not oriented perfectly normal to this motion (ie we would expect some component of gravity in all axes and we would also expect a heartbeat to show up in multiple axes)
+We also expect to see increased components of acceleration in all axes due to the fact that the phone is not oriented perfectly normal to this motion (i.e. we would expect some component of gravity in all axes and we would also expect a heartbeat to show up in multiple axes).
 
 </details>
 
@@ -88,9 +91,9 @@ We expect to see frequencies within the breathing rate (.16-.25 Hz) in our accel
 We expect a raw acceleration plot to look something like this (Y axis not to scale):
 
 <figure>
-  <figcaption>Generated acceleration wave with .95 Hz(heartbeat) and .2 Hz(breathrate) sine waves</figcaption>
   <img src="images/sim_time.png"/>
   <figcaption>Figure 3: Theoretical Acceleration</figcaption>
+  <figcaption>Generated acceleration wave with .95 Hz(heartbeat) and .2 Hz(breathrate) sine waves</figcaption>
 </figure>
 
 </details>
