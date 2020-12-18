@@ -33,7 +33,7 @@ The phone was oriented with the following axes:
 
 <figure>
   <img src="images/phone_orien.png" style="width:250;"/>
-  <figcaption>Figure 1.a: Sensor Orientation</figcaption>
+  <figcaption><b>Figure 1.a</b>: Sensor Orientation</figcaption>
 </figure>
 
 </details>
