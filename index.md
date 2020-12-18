@@ -108,7 +108,7 @@ We expect a raw acceleration plot to look something like this (Y axis not to sca
 
 ___
 
-## <a id="Signal Processing"></a> Signal Processing
+## <a id="Signal_Processing"></a> Signal Processing
 
 After collecting the data, we started off by plotting the raw acceleration to understand what the unprocessed signal looks like. We then trimmed the data to cut noise from the start and end of the data collection period. Then, we explored several methods with the Fast Fourier Transform to examine the frequency content of the signals for all axes. Finally, we decided to break the sample into smaller time samples, filtered out frequencies non-related to meditation and compared the changes in frequencies across the subsamples.
 
@@ -254,7 +254,6 @@ After exploring different methods of smoothing and analyzing the data we decided
 7. Plot data and present to the user
 
 </details>
-
 
 ___
 
