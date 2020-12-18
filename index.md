@@ -180,17 +180,11 @@ Breaking a signal into smaller samples is a valid way to remove the presence of 
 
 We experimented with breaking this signal into smaller sub samples. These samples were then transformed into the frequency domain. These samples for 3, 6 and 12 second samples are shown in   _FIGURE 1_ , _FIGURE2_ and _FIGURE3_ respectively.
 
-<img src="images/sim_vary_breathrate_freq_3sec.png" width="400"/> 
+<img src="images/sim_vary_breathrate_freq_3sec.png" width="260"/> 
+<img src="images/sim_vary_breathrate_freq_6sec.png" width="260"/> 
+<img src="images/sim_vary_breathrate_freq_12sec.png" width="260"/> 
 
-*Figure 45345 FFT of 3 second sub-sample with varying breathrate [0.3-0.1] Hz and constant 1 Hz heart rate* <br>
-
-<img src="images/sim_vary_breathrate_freq_6sec.png" width="400"/> 
-
-*Figure 45345 FFT of 6 second sub-sample with varying breathrate [0.3-0.1] Hz and constant 1 Hz heart rate*<br>
-
-<img src="images/sim_vary_breathrate_freq_12sec.png" width="400"/> 
-
-*Figure 45345 FFT of 12 second sub-sample with varying breathrate [0.3-0.1] Hz and constant 1 Hz heart rate*<br>
+**Figure 45345** _FFT of 3, 6, and 12s sub-sample, respectively, with varying breathrate [0.3-0.1] Hz and 1 Hz heart rate_<br>
 
 __*Increase Frequency Resolution in Transformed signal*__
 
@@ -203,19 +197,25 @@ We were especially interested if this strategy would help us when the frequency 
 <img src="images/sim_vary_breathrate_freq_doubled_3sec.png" width="260"/> 
 <img src="images/sim_vary_breathrate_freq_doubled_3sec_filtered.png" width="260"/> 
 
-_ **Figure12 .1** Frequency Domain plots of 3s sub-sample ploted using (default N, doubled N, doubled N after filtering)_<br>
+**Figure12 .1** _Frequency Domain of 3s sub-sample ploted (default N, doubled N, doubled N after filtering)_
+
+<br>
 
 <img src="images/sim_vary_breathrate_freq_6sec.png" width="260"/> 
 <img src="images/sim_vary_breathrate_freq_doubled_6sec.png" width="260"/> 
 <img src="images/sim_vary_breathrate_freq_doubled_6sec_filtered.png" width="260"/> 
 
-_ **Figure12 .1** Frequency Domain plots of 6s sub-sample ploted using (default N, doubled N, doubled N after filtering)_<br>
+**Figure12 .1** _Frequency Domain of 6s sub-sample using (default N, doubled N, doubled N after filtering)_
+
+<br>
 
 <img src="images/sim_vary_breathrate_freq_12sec.png" width="260"/> 
 <img src="images/sim_vary_breathrate_freq_doubled_12sec.png" width="260"/> 
 <img src="images/sim_vary_breathrate_freq_doubled_12sec_filtered.png" width="260"/> 
 
-_ **Figure12 .1** Frequency Domain plots of 12s sub-sample ploted using (default N, doubled N, doubled N after filtering)_<br>
+**Figure12 .1** _Frequency Domain plots of 12s sub-sample using (default N, doubled N, doubled N after filtering)_
+
+<br>
 
 
 Looking at Figures ABOVE ONES shows how effective our methods are. The plots should all show a large present of a frequency between 0.3-0.1 Hz and a 1 Hz signal.  Figure BOTTOM FIGURE shows how the longer time sample helps distinguish the presence of these frequencies. Interstingly, using a larger N value (to increase the plot resolution) does not help or yield new information. The same goes for the FFT plot that is made from a filtered signal (the third subplot in Figures HTOSE ABOVE FIGURES) This changes our plan of analysis to just look only use the default FFT function and filter out signals outside of our ranges of interest.
