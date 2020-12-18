@@ -148,8 +148,8 @@ One idea we had to remedy this problem was to use the additional parameter, N, i
 
 <figure>
   <div style="display:flex; justify-content:center;">
-    <img style="width:300px; display:inline;" src="images/sim_freq.png"/>
-    <img style="width:300px; display:inline;" src="images/sim_freq_double.png"/> 
+    <img style="width:400px; display:inline;" src="images/sim_freq.png"/>
+    <img style="width:400px; display:inline;" src="images/sim_freq_double.png"/> 
   </div>
   <figcaption> <b> Figure 4.d </b> Frequency Domain using fft(x, length(x)) and fft(x, 2*length(x)) respectively</figcaption>
 </figure>
@@ -188,9 +188,9 @@ We experimented with breaking this signal into smaller sub samples. These sample
 
 <figure>
   <div style="display:flex; justify-content:center;">
-    <img src="images/sim_vary_breathrate_freq_3sec.png" style="width:260px; display:inline;"/> 
-    <img src="images/sim_vary_breathrate_freq_6sec.png" style="width:260px; display:inline;"/> 
-    <img src="images/sim_vary_breathrate_freq_12sec.png" style="width:260px; display:inline;"/> 
+    <img src="images/sim_vary_breathrate_freq_3sec.png" style="width:265px; display:inline;"/> 
+    <img src="images/sim_vary_breathrate_freq_6sec.png" style="width:265px; display:inline;"/> 
+    <img src="images/sim_vary_breathrate_freq_12sec.png" style="width:265px; display:inline;"/> 
   </div>
   <figcaption> <b> Figure 4.g </b> FFT of 3, 6, and 12s sub-sample, respectively, with varying breathrate [0.3-0.1] Hz and 1 Hz heart rate</figcaption>
 </figure>
@@ -205,9 +205,9 @@ We were especially interested if this strategy would help us when the frequency 
 
 <figure>
   <div style="display:flex; justify-content:center;">
-    <img src="images/sim_vary_breathrate_freq_3sec.png" style="width:260px; display:inline;"/> 
-    <img src="images/sim_vary_breathrate_freq_doubled_3sec.png" style="width:260px; display:inline;"/> 
-    <img src="images/sim_vary_breathrate_freq_doubled_3sec_filtered.png" style="width:260px; display:inline;"/> 
+    <img src="images/sim_vary_breathrate_freq_3sec.png" style="width:265px; display:inline;"/> 
+    <img src="images/sim_vary_breathrate_freq_doubled_3sec.png" style="width:265px; display:inline;"/> 
+    <img src="images/sim_vary_breathrate_freq_doubled_3sec_filtered.png" style="width:265px; display:inline;"/> 
   </div>
   <figcaption> <b> Figure 4.h </b> Frequency Domain of 3s sub-sample ploted (default N, doubled N, doubled N after filtering)</figcaption>
 </figure>
@@ -216,9 +216,9 @@ We were especially interested if this strategy would help us when the frequency 
 
 <figure>
   <div style="display:flex; justify-content:center;">
-    <img src="images/sim_vary_breathrate_freq_6sec.png" style="width:260px; display:inline;"/>
-    <img src="images/sim_vary_breathrate_freq_doubled_6sec.png" style="width:260px; display:inline;"/> 
-    <img src="images/sim_vary_breathrate_freq_doubled_6sec_filtered.png" style="width:260px; display:inline;"/> 
+    <img src="images/sim_vary_breathrate_freq_6sec.png" style="width:265px; display:inline;"/>
+    <img src="images/sim_vary_breathrate_freq_doubled_6sec.png" style="width:265px; display:inline;"/> 
+    <img src="images/sim_vary_breathrate_freq_doubled_6sec_filtered.png" style="width:265px; display:inline;"/> 
   </div>
   <figcaption> <b> Figure 4.i </b> Frequency Domain of 6s sub-sample using (default N, doubled N, doubled N after filtering)</figcaption>
 </figure>
@@ -227,9 +227,9 @@ We were especially interested if this strategy would help us when the frequency 
 
 <figure>
   <div style="display:flex; justify-content:center;">
-    <img src="images/sim_vary_breathrate_freq_12sec.png" style="width:260px; display:inline;"/> 
-    <img src="images/sim_vary_breathrate_freq_doubled_12sec.png" style="width:260px; display:inline;"/> 
-    <img src="images/sim_vary_breathrate_freq_doubled_12sec_filtered.png" style="width:260px; display:inline;"/> 
+    <img src="images/sim_vary_breathrate_freq_12sec.png" style="width:265px; display:inline;"/> 
+    <img src="images/sim_vary_breathrate_freq_doubled_12sec.png" style="width:265px; display:inline;"/> 
+    <img src="images/sim_vary_breathrate_freq_doubled_12sec_filtered.png" style="width:265px; display:inline;"/> 
   </div>
   <figcaption> <b> Figure 4.j </b> Frequency Domain plots of 12s sub-sample using (default N, doubled N, doubled N after filtering)</figcaption>
 </figure>
@@ -262,7 +262,7 @@ ___
 After implementing the algorithm outlined above, we were able to plot and compare the frequences over the different subsamples of time.
 
 <figure>
-  <img src="images/chunked_subplot.jpg style="width:800px;"/> 
+  <img src="images/chunked_subplot.jpg" style="width:800px;"/> 
   <figcaption> <b> Figure 5.a</b> : Subplot of filtered FFT of sub-samples</figcaption>
 </figure>
 
