@@ -132,23 +132,23 @@ Below is a plot of the signal generated in the time domain. This signal has both
 
 <img src="images/sim_time.png" width="400"/> 
 
-__Time domain plot of simulated signal w/noise (.2 Hz and .95 Hz signals)__
+**Figure 12.j** _Time domain plot of simulated signal w/noise (.2 Hz and .95 Hz signals)_
 
 This signal is then converted into the frequency showing using Matlab’s FFT (Fast Fourier Transform) function ()[INSERT LINK]. This indicates how much of a certain frequency is present in a sample. Below is the figure generated from the FFT function. This signal has been shifted into the frequency domain (Hz).
 
-Figure :
+
 <img src="images/sim_freq.png" width="400"/> 
 
-***Frequency domain plot of simulated signal***
+**Figure 12.j** _Frequency domain plot of simulated signal shown in FIGURE ABOVE_
 
 This plot informs us of several things. We do indeed see the presence of the frequencies of interest. Interestingly, there is no maximum amplitude centered around the 0.95 Hz value. Instead it appears that there are sligh spikes at .9 and 1 Hz. This case shows the shortcoming of our process. In the case where a frequency is present in our signal but not aligned with the frequencies used in the fft function the “real” frequency can be masked.
 
 One idea we had was to remedy this problem by using the additional parameter that controls the size of the matrix used to calculate the fft of our signal (https://www.mathworks.com/help/matlab/ref/fft.html#f83-998360-n)[https://www.mathworks.com/help/matlab/ref/fft.html#f83-998360-n]. This parameter could generate more points between a given range in our plot and allow us to look at a more dense range of frequencies.
 
-Figure :
+
 <img src="images/sim_freq.png" width="00"/> <img src="images/sim_freq_double.png" width="400"/> 
 
-***Above are two plots showing the same frequency domain plot using fft(x, length(x)) and fft(x, 2*length(x)) respectively***
+**Figure 12.j** _Frequency Domain using fft(x, length(x)) and fft(x, 2*length(x)) respectively_
 
 These graphics show that while this doesn’t create the ideal behavior(other noise in the signal seems to be increased), it does create spikes centered around the expected values at .2 and .95 Hz. Unfortunately, this yields other spikes in non-interesting frequencies. Adjusting the __N__ parameter is worth testing, however, from this data a simple weighted average of the regions of interest would yield the same peak.
 
@@ -161,17 +161,18 @@ In order to understand what our fft would do to an input signal with a varying f
 __Data Preparation and Observation__
 In order to understand what our fft would do to an input signal with a varying frequency we simulated a signal that had a varying breath rate and constant heart rate (FIGURE 1.ABAN)T 
 
-TIME DOMAIN PLOT OF VARYING FREQUENCY)
+<img src="images/sim_vary_breathrate_time.png" width="400"/> 
 
-__Figure 3.5 Simulated 30 second sample (50 Hz), breath rate changes from .3-.1, heart rate is a constant 1 Hz __
+**Figure 3.5** _Simulated 30s sample@50Hz, breath rate varies from 0.3-0.1 Hz, heart rate is a constant 1 Hz _
 
 This signal is more representative of what we expect our incoming data to be. We also added noise to the signal shown in blue.
 
 We are interested in the frequencies present in this signal. To examine this we take a fft of the entire 30 second chunk. This yields us *Figure 3.1FSDKFLJ* which shows a clear spike at 1 Hz for the heartbeat and an increased amplitude in the range [0.1 - 0.3] Hz.
 
-![sim_vary_breathrate_freq](sim_vary_breathrate_freq.png) 
+<img src="images/sim_vary_breathrate_freq.png" width="400"/> 
+**Figure 12.2** _Frequency Domain plot of entire 30s sample _
 
-The results shown in  *Figure 3.slkjfsdlkfj* highlight exactly what we were trying to avoid -- unclear measurements of the frequencies present in the signal. Our plan to avoid this behavior is to sample smaller time chunks of an entire sample. For example we would look at 30 second chunks of a 5 minute sample. In this simulated
+The results shown in  *Figure 3.slkjfsdlkfj* highlight exactly what we were trying to avoid -- unclear peaks of the frequencies present in the signal. Our plan to avoid this behavior is to sample smaller time chunks of an entire sample. For example we would look at 30 second chunks of a 5 minute sample. In this simulated
 
 #### Investigating Potential Solutions
 __*Sub-Sampling*__
