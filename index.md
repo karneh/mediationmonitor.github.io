@@ -235,7 +235,7 @@ We were especially interested if this strategy would help us when the frequency 
 </figure>
 
 <br>
-**Figures 4.h- 4.j** show how effective our methods are. The plots **should** all show a large precense of frequencies between 0.3-0.1 Hz and a 1 Hz signal. FIGURE BOTTOM FIGURE shows how longer time samples help distinguish the presence of these frequencies. Surprisingly, using a larger N value (to increase the plot resolution) does not help or yield new information in the frequency domain plot. The same goes for the plot that is made from a filtered signal (the third subplot in **Figures 4.h- 4.j**).
+_Figures 4.h- 4.j_ show how effective our methods are. The plots __should__ all show a large precense of frequencies between 0.3-0.1 Hz and a 1 Hz signal. FIGURE BOTTOM FIGURE shows how longer time samples help distinguish the presence of these frequencies. Surprisingly, using a larger N value (to increase the plot resolution) does not help or yield new information in the frequency domain plot. The same goes for the plot that is made from a filtered signal (the third subplot in **Figures 4.h- 4.j**).
 
 This changes our plan of analysis to only use the default FFT function and filter out signals outside of our ranges of interest.
 
