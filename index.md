@@ -263,7 +263,7 @@ ___
 After implementing the algorithm outlined above, we were able to plot and compare the frequences over the different subsamples of time.
 
 <figure>
-  <img src="images/chunked_subplot.jpg"/> 
+  <img src="images/chunked_subplot.jpg style="width:800px;"/> 
   <figcaption> <b> Figure 5.a</b> : Subplot of filtered FFT of sub-samples</figcaption>
 </figure>
 
@@ -324,12 +324,13 @@ Many of the above limitations and problems are caused by the use of an accelerom
 
 To address these limitations, we could use a different sensor to detect heart and breathing rate. Other sensors such as a microphone could allow us to more easily detect individual breaths, which would allow us to see greater resolution since we could see each breath rather than the breath rate over a time sample.
 
-*Product Launch*
+### Product Launch
  
 Refactoring our code into a smartphone app is the final step. This app would be able to parse an entire meditation session into smaller time chunks and then allow the user to look back at portions of their session and examine how their breathing and heart rates fluctuated.
 
 </details>
 
+___
 
 ## <a id="Sources"></a> Sources
 
