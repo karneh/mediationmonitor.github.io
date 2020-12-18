@@ -114,7 +114,7 @@ Looking at a magnified portion of the data, there are large periodic peaks that 
 
 <figure>
   <img src="images/zoomed_raw_data.jpg"/> 
-  <figcaption>Figure 4: Raw Acceleration</figcaption>
+  <figcaption>Figure 5: Rafafaef change nae later </figcaption>
 </figure>
 
 </details>
@@ -234,7 +234,22 @@ This changes our plan of analysis to only use the default FFT function and filte
 ___
 
 ## <a id="Results"></a>Results
-*Show our patterns for heart rate + breath rate.
+
+<figure>
+  <img src="images/chunked_subplot.jpg"/> 
+  <figcaption>Figure x: subplsot of FFTs a</figcaption>
+</figure>
+
+<figure>
+  <img src="images/breathratetime.jpg"/> 
+  <figcaption> Figure x: breath shit </figcaption>
+</figure>
+
+<figure>
+  <img src="images/heartratetime.jpg"/> 
+  <figcaption>Figure x: heart shit </figcaption>
+</figure>
+
 
 ___
 
