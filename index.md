@@ -247,7 +247,7 @@ Extract maximum peaks in the frequency domain that likely correlate with heart r
 Plot data and present to the user
 
 
-<details>
+
 ___
 
 ## <a id="Results"></a>Results
