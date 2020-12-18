@@ -124,22 +124,6 @@ Looking at a magnified portion of the data, there are large periodic peaks that 
 
 <details>
   <summary>Exploration & Validation of Algorithm</summary>
-  
-
-<details>
-  <summary>Final Algorithm</summary>
-
-After exploring different methods of smoothing and analyzing the data we decided on an algorithm that contains the following steps:
-
-Trim the front and end of the data to remove anomalies
-Break the data into smaller sub-samples to detect changes in breath rate and heart rate throughout the meditation session.
-FFT the data and compute frequencies using Fs and sample size (N)
-Used a band pass filter to decrease the amplitudes of frequencies in ranges not correlated to breath rate and heart rate. 
-Extract maximum peaks in the frequency domain that likely correlate with heart rate and breath rate
-Plot data and present to the user
-
-
-<details>
 
 #### Examining the Frequency Domain ####
   
@@ -250,6 +234,20 @@ This changes our plan of analysis to only use the default FFT function and filte
 
 </details>
 
+<details>
+  <summary>Final Algorithm</summary>
+
+After exploring different methods of smoothing and analyzing the data we decided on an algorithm that contains the following steps:
+
+Trim the front and end of the data to remove anomalies
+Break the data into smaller sub-samples to detect changes in breath rate and heart rate throughout the meditation session.
+FFT the data and compute frequencies using Fs and sample size (N)
+Used a band pass filter to decrease the amplitudes of frequencies in ranges not correlated to breath rate and heart rate. 
+Extract maximum peaks in the frequency domain that likely correlate with heart rate and breath rate
+Plot data and present to the user
+
+
+<details>
 ___
 
 ## <a id="Results"></a>Results
