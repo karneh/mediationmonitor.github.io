@@ -179,15 +179,15 @@ Breaking a signal into smaller samples is a valid way to remove the presence of 
 
 We experimented with breaking this signal into smaller sub samples. These samples were then transformed into the frequency domain. These samples for 3, 6 and 12 second samples are shown in   _FIGURE 1_ , _FIGURE2_ and _FIGURE3_ respectively.
 
-<img src="images/sim_vary_breathrate_freq_3sec.png" width="400"/> 
+<img src="images/sim_vary_breathrate_freq_3sec.png" width="260"/> 
 
 *Figure 45345 FFT of 3 second sub-sample with varying breathrate [0.3-0.1] Hz and constant 1 Hz heart rate*
 
-<img src="images/sim_vary_breathrate_freq_6sec.png" width="400"/> 
+<img src="images/sim_vary_breathrate_freq_6sec.png" width="260"/> 
 
 *Figure 45345 FFT of 6 second sub-sample with varying breathrate [0.3-0.1] Hz and constant 1 Hz heart rate*
 
-<img src="images/sim_vary_breathrate_freq_12sec.png" width="400"/> 
+<img src="images/sim_vary_breathrate_freq_12sec.png" width="260"/> 
 
 *Figure 45345 FFT of 12 second sub-sample with varying breathrate [0.3-0.1] Hz and constant 1 Hz heart rate*
 
