@@ -20,26 +20,29 @@
     <link rel="stylesheet" href="{{ '/assets/css/style.css?v=' | append: site.github.build_revision | relative_url }}">
   </head>
   <body>
-    
+      
     <header class="page-header" role="banner">
       <h1 class="project-name">Meditation Monitor</h1>
       <h2 class="project-tagline">{{ page.description | default: site.description | default: site.github.project_tagline }}</h2>
       {% if site.github.is_project_page %}
         <a href="{{ site.github.repository_url }}" class="btn">View on GitHub</a>
-        <a href="#Introduction" class="btn">Introduction</a>
-        <a href="#Data_Collection" class="btn">Data Collection</a>
-        <a href="#Motion_Model" class="btn">Motion Model</a>
-        <a href="#Analytical_Method" class="btn">Analytical Method</a>
-        <a href="#Results" class="btn">Results</a>
-        <a href="#Limitations" class="btn">Limitations</a>
-        <a href="#Next_Steps" class="btn">Next Steps</a>
-        <a href="#Sources" class="btn">Sources</a>
       {% endif %}
       {% if site.show_downloads %}
         <a href="{{ site.github.zip_url }}" class="btn">Download .zip</a>
         <a href="{{ site.github.tar_url }}" class="btn">Download .tar.gz</a>
       {% endif %}
     </header>
+    
+    <nav class="sticky-menu">
+      <a href="#Introduction" class="btn">Introduction</a>
+      <a href="#Data_Collection" class="btn">Data Collection</a>
+      <a href="#Motion_Model" class="btn">Motion Model</a>
+      <a href="#Analytical_Method" class="btn">Analytical Method</a>
+      <a href="#Results" class="btn">Results</a>
+      <a href="#Limitations" class="btn">Limitations</a>
+      <a href="#Next_Steps" class="btn">Next Steps</a>
+      <a href="#Sources" class="btn">Sources</a>
+    </nav>
 
     <main id="content" class="main-content" role="main">
       {{ content }}
