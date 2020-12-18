@@ -198,25 +198,27 @@ As we shown in Figure (TOP FIGURE WITH HUGE N VALUE) sometimes using a larger *N
 
 We were especially interested if this strategy would help us when the frequency content in a signal is changing. The simulated and chunked data was examined with and without filtering to see if it yielded better results. The filtering was done by band pass filter in which the amplitude of all frequencies that were not a possible heart rate (CITE THIS) or breath rate (CITE THIS) were divided by ten. 
 
-![](figure 3sec normal) 
 
 <img src="images/sim_vary_breathrate_freq_3sec.png" width="260"/> 
 <img src="images/sim_vary_breathrate_freq_doubled_3sec.png" width="260"/> 
 <img src="images/sim_vary_breathrate_freq_doubled_3sec_filtered.png" width="260"/> 
 
-_Figure12 .1 Frequency Domain plots of 3s sub-sample ploted using (default N, doubled N, doubled N after filtering)_
+_ **Figure12 .1** Frequency Domain plots of 3s sub-sample ploted using (default N, doubled N, doubled N after filtering)_<br>
 
 <img src="images/sim_vary_breathrate_freq_6sec.png" width="260"/> 
 <img src="images/sim_vary_breathrate_freq_doubled_6sec.png" width="260"/> 
 <img src="images/sim_vary_breathrate_freq_doubled_6sec_filtered.png" width="260"/> 
 
-*Figure12 .1 Frequency Domain plots of 6s sub-sample ploted using (default N, doubled N, doubled N after filtering) *
+_ **Figure12 .1** Frequency Domain plots of 6s sub-sample ploted using (default N, doubled N, doubled N after filtering)_<br>
 
 <img src="images/sim_vary_breathrate_freq_12sec.png" width="260"/> 
 <img src="images/sim_vary_breathrate_freq_doubled_12sec.png" width="260"/> 
 <img src="images/sim_vary_breathrate_freq_doubled_12sec_filtered.png" width="260"/> 
 
-*Figure12 .1 Frequency Domain plots of 12s sub-sample ploted using (default N, doubled N, doubled N after filtering) *
+_ **Figure12 .1** Frequency Domain plots of 12s sub-sample ploted using (default N, doubled N, doubled N after filtering)_<br>
+
+
+Looking at Figures ABOVE ONES shows how effective our methods are. The plots should all show a large present of a frequency between 0.3-0.1 Hz and a 1 Hz signal.  Figure BOTTOM FIGURE shows how the longer time sample helps distinguish the presence of these frequencies. Interstingly, using a larger N value (to increase the plot resolution) does not help or yield new information. The same goes for the FFT plot that is made from a filtered signal (the third subplot in Figures HTOSE ABOVE FIGURES) This changes our plan of analysis to just look only use the default FFT function and filter out signals outside of our ranges of interest.
 
 
 </details>
