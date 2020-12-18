@@ -137,7 +137,7 @@ Below is a plot of the signal generated in the time domain. This signal has both
 This signal is then converted into the frequency showing using Matlab’s FFT (Fast Fourier Transform) function ()[INSERT LINK]. This indicates how much of a certain frequency is present in a sample. Below is the figure generated from the FFT function. This signal has been shifted into the frequency domain (Hz).
 
 
-<img class="centered"  src="images/sim_freq.png" width="800"/> 
+<img class="centered"  src="images/sim_freq.png" width="600"/> 
 
 **Figure 12.j** _Frequency domain plot of simulated signal shown in FIGURE ABOVE_
 
