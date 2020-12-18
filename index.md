@@ -88,7 +88,7 @@ Figure 3: Theoretical Acceleration
 
 
 
-<img src="images/sim_time.png" width="400"/>
+<img class="centered" src="images/sim_time.png" width="400"/>
 
 ***Generated wave with .95 Hz(heartbeat) and .2 Hz(breathrate) sine waves ***
 
@@ -109,7 +109,7 @@ Before we began actually analyzing the data, some trimming of the data was neces
 
 Figure 4: Raw Acceleration
 
-<img src="images/rawdata.jpg" width="400"/> 
+<img class="centered"  src="images/rawdata.jpg" width="400"/> 
 
 We then split the data into smaller time chunks in order to examine how metrics like breathing rate and heart rate vary throughout the meditation session.
 
@@ -117,7 +117,7 @@ AFter looking at the FFT of the control data, we decided to filter out the contr
 
 Figure 5: Control Data FFT
 
-<img src="images/ControlDataFFT.jpg" width="400"/> 
+<img class="centered" src="images/ControlDataFFT.jpg" width="600"/> 
 
 At this point, we decided to implement a band pass filter to decrease the amplitude of frequencies we are not interested in. To choose the frequency ranges we looked up data on breath rates and heart rates.
 
@@ -130,14 +130,14 @@ To validate our method we performed a first pass analysis on a constructed signa
 Below is a plot of the signal generated in the time domain. This signal has both a .95 Hz and 0.2 Hz signal in the dataset. These two frequencies represent a heart and breath rate respectively. 
 
 
-<img src="images/sim_time.png" width="400"/> 
+<img class="centered"  src="images/sim_time.png" width="600"/> 
 
 **Figure 12.j** _Time domain plot of simulated signal w/noise (.2 Hz and .95 Hz signals)_
 
 This signal is then converted into the frequency showing using Matlab’s FFT (Fast Fourier Transform) function ()[INSERT LINK]. This indicates how much of a certain frequency is present in a sample. Below is the figure generated from the FFT function. This signal has been shifted into the frequency domain (Hz).
 
 
-<img src="images/sim_freq.png" width="400"/> 
+<img class="centered"  src="images/sim_freq.png" width="800"/> 
 
 **Figure 12.j** _Frequency domain plot of simulated signal shown in FIGURE ABOVE_
 
@@ -146,7 +146,7 @@ This plot informs us of several things. We do indeed see the presence of the fre
 One idea we had was to remedy this problem by using the additional parameter that controls the size of the matrix used to calculate the fft of our signal (https://www.mathworks.com/help/matlab/ref/fft.html#f83-998360-n)[https://www.mathworks.com/help/matlab/ref/fft.html#f83-998360-n]. This parameter could generate more points between a given range in our plot and allow us to look at a more dense range of frequencies.
 
 
-<img src="images/sim_freq.png" width="00"/> <img src="images/sim_freq_double.png" width="400"/> 
+<img src="images/sim_freq.png" width="400"/> <img src="images/sim_freq_double.png" width="400"/> 
 
 **Figure 12.j** _Frequency Domain using fft(x, length(x)) and fft(x, 2*length(x)) respectively_
 
@@ -161,7 +161,7 @@ In order to understand what our fft would do to an input signal with a varying f
 __Data Preparation and Observation__
 In order to understand what our fft would do to an input signal with a varying frequency we simulated a signal that had a varying breath rate and constant heart rate (FIGURE 1.ABAN)T 
 
-<img src="images/sim_vary_breathrate_time.png" width="400"/> 
+<img class="centered"  src="images/sim_vary_breathrate_time.png" width="600"/> 
 
 **Figure 3.5** _Simulated 30s sample@50Hz, breath rate varies from 0.3-0.1 Hz, heart rate is a constant 1 Hz _
 
@@ -169,7 +169,7 @@ This signal is more representative of what we expect our incoming data to be. We
 
 We are interested in the frequencies present in this signal. To examine this we take a fft of the entire 30 second chunk. This yields us *Figure 3.1FSDKFLJ* which shows a clear spike at 1 Hz for the heartbeat and an increased amplitude in the range [0.1 - 0.3] Hz.
 
-<img src="images/sim_vary_breathrate_freq.png" width="400"/> 
+<img class="centered"  src="images/sim_vary_breathrate_freq.png" width="600"/> 
 **Figure 12.2** _Frequency Domain plot of entire 30s sample _
 
 The results shown in  *Figure 3.slkjfsdlkfj* highlight exactly what we were trying to avoid -- unclear peaks of the frequencies present in the signal. Our plan to avoid this behavior is to sample smaller time chunks of an entire sample. For example we would look at 30 second chunks of a 5 minute sample. In this simulated
