@@ -306,7 +306,7 @@ This project is far from perfect and there are a variety of things that could be
   <summary>Nature of the Problem</summary>
 
   <ul>
-    <li>People breathe very differently. Breathing through your nose vs mouth or diaphragm yields very different accelerometer plots</li>
+    <li>People breathe differently. Breathing through your nose vs mouth or diaphragm yields different shaped accelerometer plots</li>
     <li>The frequencies we are measuring change over time, we attempt to combat this by looking at small time steps</li>
     <li>Breathing frequencies are quite low and variable which requires us to have large samples</li>
     <li>Breath rate can be controlled more than heart rate, which yields inconsistent signals</li>
